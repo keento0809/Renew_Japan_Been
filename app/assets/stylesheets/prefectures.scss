@@ -1,0 +1,179 @@
+// Place all the styles related to the Prefectures controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+// style_memory.css
+
+body{
+    font-family: Arial, Helvetica, sans-serif,'ヒギラノ角ゴシック';
+  }
+  
+  .container{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+  }
+  
+  .container>h1{
+    justify-content: center;
+  }
+  
+  .container>.item1{
+    padding: 0.25em 0.5em;
+    color: #494949;
+    background: transparent;
+    border-left: solid 5px #7db4e6;
+    text-align: left;
+    width: 100%;
+    font-size: 20px;
+  }
+  
+  .text-wrapper{
+    display: inline-flex;
+    height: 25%;
+    width: 100%;
+    /* justify-content: center; */
+    margin-bottom: 30px;
+  }
+  .text-wrapper>#detail{
+    height: 100px;
+    width: 100%;
+    margin-top: 10px;
+    border: 1px solid ;
+    border-radius: 4px;
+  }
+  .btn-section{
+    display: inline-flex;
+    justify-content: center;
+    margin-top: 60px;
+    width: 100%;
+  }
+  
+  .btn-section>.savebtn,.backBtn {
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+    background: #87befd;
+    color: #fff;
+    font-size: 24px;
+    width: 100px;
+    height: 100px;
+    line-height: 80px;
+    border-radius: 50%;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  .savebtn:hover{
+    background: #668ad8;
+  }
+  
+  /* 写真エリア */
+  .photo-section{
+    position: relative;
+    height:180px;
+    width: 100%;
+  }
+  
+  .photo-section>img{
+    height: 180px;
+    width: 320px;
+  }
+  
+  .photo-section>label>input{
+    display: none;
+  }
+  
+  .input-button::before{
+    background: #616161;
+    border-radius: 50%;
+    color: #fff;
+    content: "+";
+    cursor: pointer;
+    font-size: 1.5rem;
+    opacity: 0.9;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    line-height: 3rem;
+    height: 3rem;
+    text-align: center;
+    width: 3rem;
+  }
+
+
+
+
+/* ここからテスト用css */
+
+/* テスト　保存ボタン　width問題対策 */
+#wakewaka {
+    width: 294px;
+}
+/* テスト　都道府県詳細ページ　保存ボタン */
+.sbb {
+    padding: 10px;
+    border-radius: 4px;
+    width: 30%;
+    appearance: push-button;
+    user-select: none;
+    white-space: pre;
+    align-items: flex-start;
+    text-align: center;
+    cursor: default;
+    color: -internal-light-dark(black, white);
+    background-color: -internal-light-dark(rgb(239, 239, 239), rgb(59, 59, 59));
+    box-sizing: border-box;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+}
+/* 写真エリア */
+.photo-section{
+    position: relative;
+    height:180px;
+    width: 320px;
+}
+  /* テスト　f.file_fieldを書き換える為に設定 */
+  .modify-button {
+      display:none;
+  }
+
+  /* テスト　f.file_fieldを書き換える為に設定 */
+  .modify-b::before{
+    background: #616161;
+    border-radius: 50%;
+    color: #fff;
+    content: "+";
+    cursor: pointer;
+    font-size: 1.5rem;
+    opacity: 0.9;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    line-height: 3rem;
+    height: 3rem;
+    text-align: center;
+    width: 3rem;
+}
+
+  /* テスト　f.file_fieldを書き換える為に設定 */
+  .img-zone {
+      position: relative;
+      width:320px ;
+      height:180px ;
+    }
+    
+    /* テスト　都道府県詳細ページのコメント投稿フォーム */
+    .taa {
+      height: 100px;
+      width: 85%;
+      margin-top: 10px;
+    }
+

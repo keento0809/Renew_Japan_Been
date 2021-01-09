@@ -1,0 +1,8 @@
+<%#= link_to "SIGNUP", new_user_path %>
+<%#= link_to "LOGIN", login_path %>
+
+<% if logged_in? %>
+    <%= render 'homes/if' %>
+<% else %>
+    <%= render 'homes/else' %>
+<% end %>

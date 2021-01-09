@@ -1,0 +1,14 @@
+<h2>Search Function</h2>
+
+<%= form_tag(users_path, :method => "get") do %>
+    <%= text_field_tag :search,'', placeholder: 'Search' %>
+    <%= submit_tag "Search", :name => nil,  class:"button is-info" %>
+<% end %>
+
+<ul class="users">
+    <% @users.each do |user| %>
+        <section>
+            <%= user.name %>
+        </section>
+    <% end %>
+</ul>

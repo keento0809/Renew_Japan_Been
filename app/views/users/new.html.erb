@@ -1,0 +1,22 @@
+<div class="new-user-container">
+    <h1>SIGNUP</h1>
+    <%= form_with(model: @user, local: true) do |f| %>
+        <section class="u-form">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: 'form-control' %>
+        </section>
+        <section class="u-form">
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'form-control' %>
+        </section>
+        <section class="u-form">
+            <%= f.label :password %>
+            <%= f.password_field :password, class: 'form-control' %>
+        </section>
+        <section class="u-form">
+            <span>Remember on this controller</span>
+        </section>
+        <%= f.submit "SUBMIT", class: '' %>
+    <% end %>
+    <%= link_to "TOP", root_url %>
+</div>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint", content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Japan Been in Rails</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'homes', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%# Rails6の場合はjavascript_include_tagではなくjavascript_pack_tagを用いる %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <!-- サーチアイコンをクリックしたときのモーデル -->
+    <div id="js-search-modal" class="serach-modal hidden">
+    <section class="search-header">
+      <i class="fas fa-times fa-2x" id="js-cross"></i>
+      <h2>Select Prefecture</h2>
+      <i class="fas fa-check fa-2x" id='js-check'></i>
+    </section>
+    <form action="" class="search-form">
+      <!-- <i class="fas fa-search-plus"></i> -->
+      <input type="text" name="" id="search-input">
+      <span>Cancel</span>
+    </form>
+
+    <!-- 県名一覧 -->
+    <article>
+      <!-- 配列で追加するとDOM操作で追加する？それともあらかじめ作成しておく？→とりあえずDOMでcreateElement使ってみる。idをpref1~47としてDOMで付与していく -->
+      <ul id="js-pref-list"> 
+        <!-- ここに県を追加していく -->
+        <!-- <li><i class="fas fa-check-circle"></i></li> -->
+      </ul>
+    </article>
+    </div>
+
+    <!-- ヘッダー -->
+    <header>
+        <div class="header" id="js-header">
+        <h1 class="header-title">Japan been</h1>
+        <!-- <h1 class="header-title"><%= link_to "Japan been", root_url %></h1> -->
+        <div class="search">
+            <i class="fas fa-search fa-2x" id="js-search-icon"></i>
+        </div>
+        <!-- ハンバーガーメニュー -->
+        <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+        <label for="openSidebarMenu" class="sidebarIconToggle">
+            <div class="spinner diagonal part-1"></div>
+            <div class="spinner horizontal"></div>
+            <div class="spinner diagonal part-2"></div>
+        </label>
+        <div id="sidebarMenu">
+            <ul class="sidebarMenuInner">
+
+            <% if false %> <!-- オリジナル版コメントアウト -->
+            <li><a href="https://vanila.io" target="_blank">登録情報の編集</a></li>
+            <li><a href="https://vanila.io" target="_blank">ログアウト</a></li>
+            <% end %> <!-- コメントアウトここまで -->
+
+            <!-- 書き換え版 -->
+            <% if logged_in? %>
+                <li><%= link_to "ユーザー名：#{current_user.name}", user_path(current_user.id) %> </li>
+                <li><%= link_to "登録情報の編集", edit_user_path(current_user.id) %></li>
+                <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+            <% end %>
+            <!-- 書き換え版ここまで -->
+
+            </ul> 
+            </div> <!-- slidemenu -->
+        </div> <!-- header -->
+        <!-- ここまでハンバーガーメニュー -->
+    </header>
+    <!-- ヘッダーここまで -->
+
+    <main>
+        <%# <div class="main-container"> %>
+            <% flash.each do |message_type, message| %>
+                <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+            <% end %>
+            <%= yield %>
+        <%# </div> %>
+    </main>
+
+    <!-- フッターここから -->
+    <footer>
+        <section class="snsShare">
+        <i class="fas fa-external-link-alt"></i>
+        <span id="js-test">Japan beenをSNSでシェア</span>
+        </section>
+    </footer>
+    <!-- フッターここまで -->
+
+  </body>
+  <!-- JS読み込み -->
+  <%= javascript_pack_tag 'image-upload' %>
+  <%= javascript_pack_tag 'index' %>
+</html>

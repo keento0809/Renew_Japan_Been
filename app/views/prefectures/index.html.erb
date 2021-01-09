@@ -1,0 +1,60 @@
+<!-- 都道府県詳細ページの戻るボタンを押すとトップページに戻るようにする -->
+<% if logged_in? %>
+    <%= render 'homes/if' %>
+<% else %>
+    <%= render 'homes/else' %>
+<% end %>
+
+
+
+
+
+<!-- 下記全てコメントアウト -->
+<% if false %>
+
+<p>Prefectures Index</p>
+<h1>なぜ非同期通信せんのじゃい</h1>
+
+<dl class="searchbox">
+    <%= search_form_for @search, url: prefectures_path do |f| %>
+        <dt><%= f.search_field :name_cont, placeholder: 'Search' %></dt>
+        <dd><%= f.submit "Search", class: 'search-btn' %></dd>
+    <% end %>
+</dl>
+
+<%# 検索した場合は@search_prefecturesで検索した結果が返ってくるので、@search_prefecturesへ書き換える %>
+<% @search_Prefectures.each do |p| %>
+    <%= p.name %>
+
+    <!-- LIKE機能コメントアウト -->
+    <% if false %>
+
+    <% if Like.find_by(user_id: current_user.id, prefecture_id: @prefecture_id) %>
+        <%= link_to "♡", method: :delete, class: "element" %>
+            <%= icon("fas", "heart", class: "bbb like-btn") %>
+    <% else %>
+        <%= link_to "♡", method: :post, class: "element" %>
+            <%= icon("fas", "heart", class: "bbb unlike-btn") %>
+    <% end %>
+
+    <% end %>
+    <!-- コメントアウトここまで -->
+<% end %>
+
+
+    <%#= f.check_box :prefecture %>
+    <%# if !@prefectures.like.user_id.include?(current_user) %>
+        <%#= link_to likes_path(prefecture_id: prefecture_id), method: :post do %>
+            <%# <i class="far far-heart like-btn bbb"></i> %>
+        <%# end %>
+    <%# else %>
+        <%#= link_to likes_path(prefecture_id: prefecture_id), method: :delete do %>
+            <%# <i class="far far-heart like-btn bbb"></i> %>
+        <%# end %>
+    <%# end %>
+
+<div>
+    <%= link_to "TOP", root_url %>
+</div>
+
+<% end %>

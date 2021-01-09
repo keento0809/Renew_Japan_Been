@@ -1,0 +1,579 @@
+<head>
+    <%= stylesheet_link_tag 'homes', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<%# if false ~ endで全体をコメントアウト(erbファイル)  %>
+<% if false %>
+
+<h3>TOP PAGE</h3>
+
+<p>You`re <strong><%= @current_user.name %></strong>.</p>
+
+<p>View all users <%= link_to "HERE", users_path %>.</p>
+
+<p>View your profile <%= link_to "HERE", user_path(current_user.id) %>.</p>
+
+<!-- 「登録情報の編集」用リンク -->
+<p>Edit your profile <%= link_to "登録情報の編集", edit_user_path(current_user.id) %>.</p>
+
+<p>All Prefectures <%= link_to "HERE", prefectures_path %>.</p>
+
+<!-- ログアウト用リンク -->
+<%= link_to "ログアウト", logout_path, method: :delete %>
+
+<% end %>
+
+<%# <body> %>
+  <%# <main> %>
+    <!-- 地図をクリックした時のモーダル -->
+    <!-- モーダル周りの黒っぽい背景 -->
+    <div id="mask1" class="hidden mask"></div>
+    <!-- 北海道・東北 -->
+    <section class="hidden modal" data-modal="modal1" id="modal1">
+      <!-- 一覧 -->
+
+    　<!-- 北海道・東北のモーダルウィンドウ　書き換え版 -->
+      <ul>
+        <li><%= link_to "北海道", prefecture_path(1) %></li>
+        <li><%= link_to "青森", prefecture_path(2) %></li>
+        <li><%= link_to "岩手", prefecture_path(4) %></li>
+        <li><%= link_to "秋田", prefecture_path(3) %></li>
+        <li><%= link_to "宮城", prefecture_path(6) %></li>
+        <li><%= link_to "山形", prefecture_path(5) %></li>
+        <li><%= link_to "福島", prefecture_path(7) %></li>
+      </ul>
+      <div class="close" id="close1">閉じる</div>
+
+    </section>
+    
+    <!-- 関東地方 -->
+    <div id="mask2" class="hidden mask"></div>
+    <section class="hidden modal" data-modal="modal2" id="modal2">
+      <!-- 一覧 -->
+      <ul>
+        <a href=""><li><%= link_to "茨城", prefecture_path(8) %></li></a>
+        <a href=""><li><%= link_to "栃木", prefecture_path(9) %></li></a>
+        <a href=""><li><%= link_to "群馬", prefecture_path(10) %></li></a>
+        <a href=""><li><%= link_to "千葉", prefecture_path(12) %></li></a>
+        <a href=""><li><%= link_to "埼玉", prefecture_path(11) %></li></a>
+        <a href=""><li><%= link_to "東京", prefecture_path(13) %></li></a>
+        <a href=""><li><%= link_to "神奈川", prefecture_path(14) %></li></a>
+      </ul>
+      <div class="close" id="close2">閉じる</div>
+    </section>
+    
+    <!-- 中部地方 -->
+    <div id="mask3" class="hidden mask"></div>
+    <section class="hidden modal" data-modal="modal3" id="modal3">
+      <!-- 一覧 -->
+      <ul>
+        <a href=""><li><%= link_to "新潟", prefecture_path(18) %></li></a>
+        <a href=""><li><%= link_to "富山", prefecture_path(19) %></li></a>
+        <a href=""><li><%= link_to "石川", prefecture_path(20) %></li></a>
+        <a href=""><li><%= link_to "福井", prefecture_path(20) %></li></a>
+        <a href=""><li><%= link_to "長野", prefecture_path(17) %></li></a>
+        <a href=""><li><%= link_to "山梨", prefecture_path(16) %></li></a>
+        <a href=""><li><%= link_to "静岡", prefecture_path(15) %></li></a>
+        <a href=""><li><%= link_to "愛知", prefecture_path(21) %></li></a>
+        <a href=""><li><%= link_to "岐阜", prefecture_path(22) %></li></a>
+      </ul>
+      <div class="close" id="close3">閉じる</div>
+    </section>
+    
+    <!-- 近畿地方 -->
+    <div id="mask4" class="hidden mask"></div>
+    <section class="hidden modal" data-modal="modal4" id="modal4">
+      <!-- 一覧 -->
+      <ul>
+        <a href=""><li><%= link_to "三重", prefecture_path(23) %></li></a>
+        <a href=""><li><%= link_to "奈良", prefecture_path(26) %></li></a>
+        <a href=""><li><%= link_to "滋賀", prefecture_path(24) %></li></a>
+        <a href=""><li><%= link_to "和歌山", prefecture_path(25) %></li></a>
+        <a href=""><li><%= link_to "京都", prefecture_path(28) %></li></a>
+        <a href=""><li><%= link_to "大阪", prefecture_path(27) %></li></a>
+        <a href=""><li><%= link_to "兵庫", prefecture_path(29) %></li></a>
+      </ul>
+      <div class="close" id="close4">閉じる</div>
+    </section>
+    
+    <!-- 中国地方 -->
+    <div id="mask5" class="hidden mask"></div>
+    <section class="hidden modal" data-modal="modal5" id="modal5">
+      <!-- 一覧 -->
+      <ul>
+        <a href=""><li><%= link_to "鳥取", prefecture_path(32) %></li></a>
+        <a href=""><li><%= link_to "島根", prefecture_path(33) %></li></a>
+        <a href=""><li><%= link_to "岡山", prefecture_path(30) %></li></a>
+        <a href=""><li><%= link_to "広島", prefecture_path(31) %></li></a>
+        <a href=""><li><%= link_to "山口", prefecture_path(38) %></li></a>
+      </ul>
+      <div class="close" id="close5">閉じる</div>
+    </section>
+    
+    <!-- 四国 -->
+    <div id="mask6" class="hidden mask"></div>
+    <section class="hidden modal" data-modal="modal6" id="modal6">
+      <!-- 一覧 -->
+      <ul>
+        <a href=""><li><%= link_to "香川", prefecture_path(34) %></li></a>
+        <a href=""><li><%= link_to "徳島", prefecture_path(35) %></li></a>
+        <a href=""><li><%= link_to "愛媛", prefecture_path(36) %></li></a>
+        <a href=""><li><%= link_to "高知", prefecture_path(37) %></li></a>
+      </ul>
+      <div class="close" id="close6">閉じる</div>
+    </section>
+    
+    <!-- 九州・沖縄 -->
+    <div id="mask7" class="hidden mask"></div>
+    <section class="hidden modal" data-modal="modal7" id="modal7">
+      <!-- 一覧 -->
+      <ul>
+        <a href=""><li><%= link_to "福岡", prefecture_path(39) %></li></a>
+        <a href=""><li><%= link_to "佐賀", prefecture_path(40) %></li></a>
+        <a href=""><li><%= link_to "長崎", prefecture_path(41) %></li></a>
+        <a href=""><li><%= link_to "大分", prefecture_path(42) %></li></a>
+        <a href=""><li><%= link_to "宮崎", prefecture_path(44) %></li></a>
+        <a href=""><li><%= link_to "熊本", prefecture_path(43) %></li></a>
+        <a href=""><li><%= link_to "鹿児島", prefecture_path(45) %></li></a>
+        <a href=""><li><%= link_to "沖縄", prefecture_path(46) %></li></a>
+      </ul>
+      <div class="close" id="close7">閉じる</div>
+    </section>
+    <!-- ここまで地図をクリックしたときのモーダル -->
+
+    <% if false %>
+    <!-- サーチアイコンをクリックしたときのモーデル -->
+    <div id="js-search-modal" class="search-modal hidden">
+    <section class="search-header">
+      <i class="fas fa-times fa-2x" id="js-cross"></i>
+      <h2>Select Prefecture</h2>
+      <i class="fas fa-check fa-2x" id='js-check'></i>
+    </section>
+    <form action="" class="search-form">
+      <!-- <i class="fas fa-search-plus"></i> -->
+      <input type="text" name="" id="search-input">
+      <span>Cancel</span>
+    </form>
+
+
+      <!-- サーチアイコン内検索フォーム -->
+      <!-- とりまコメントアウト -->
+
+    　<dl class="">
+        <%= search_form_for @search, remote: true, url: prefectures_path do |f| %>
+            <dt><%= f.search_field :name_cont, placeholder: 'Search' %></dt>
+            <dd><%= f.submit "Search", class: 'search-btn' %></dd>
+        <% end %>
+    　</dl>
+
+    　<!-- オリジナル：formタグ版 -->
+    　<form action="" class="search-form">
+        <!-- サーチアイコン = submit -->
+        <i class="fas fa-search-plus"></i>
+        <!-- 検索フォーム -->
+        <input type="text" name="" id="search-input">
+        <!-- キャンセルbtn -->
+        <span>Cancel</span>
+        
+      </form>
+
+      <form action="" class="search-form">
+
+        <dl class="">
+            <%= search_form_for @search, remote: true ,url: prefectures_path do |f| %>
+                <!-- サーチアイコン -->
+                <i class="fas fa-search-plus">
+                    <dd>
+                        <%= f.submit "Search", class: 'search-btn' %>
+                    </dd>
+                </i>
+
+                <!-- 検索フォーム -->
+                <dt><%= f.search_field :name_cont, placeholder: 'Search', id: "search-input" %></dt>
+
+                <!-- キャンセルbtn -->
+                <span>Cancel</span>
+            <% end %>
+        </dl>
+      </form>
+      <% end %>
+      <!-- コメントアウトここまで -->
+
+
+
+      <!-- 書き換え版 -->
+        
+
+      <% if false %> <!-- オリジナル版コメントアウト -->
+      <article>
+        <!-- 配列で追加するとDOM操作で追加する？それともあらかじめ作成しておく？→とりあえずDOMでcreateElement使ってみる。idをpref1~47としてDOMで付与していく -->
+        <ul>
+          <!-- ここに県を追加していく -->
+          <li><i class="fas fa-check-circle"></i></li>
+        </ul>
+      </article>
+      <% end %> 
+      <!-- コメントアウトここまで -->
+
+
+      <article>
+        <!-- 配列で追加するとDOM操作で追加する？それともあらかじめ作成しておく？→とりあえずDOMでcreateElement使ってみる。idをpref1~47としてDOMで付与していく -->
+        <ul id="js-pref-list"> 
+        <!-- ここに県を追加していく -->
+        <!-- <li><i class="fas fa-check-circle"></i></li> -->
+        </ul>
+
+
+
+        <% if false %>
+
+        　<%# 検索した場合は@search_prefecturesで検索した結果が返ってくるので、@search_prefecturesへ書き換える %>
+        　<% @search_Prefectures.each do |p| %>
+            <li><%= p.name %></li>
+            <%# <i class="fas fa-check-circle"></i> %>
+            <%#= p.name %>
+        　<% end %>
+
+        <% end %>
+
+      </article>
+    </div>
+
+        <!-- ↑ railsでも都道府県一覧表示可能？？ 下記にて試す -->
+
+
+
+
+    <!-- 日本地図の部分 -->
+    <div id="japan-map" class="clearfix">
+
+      <!-- 北海道・東北 -->
+      <div id="hokkaido-touhoku" class="clearfix">
+        <p class="area-title">北海道・東北</p>
+        <div class="area">
+        
+          <!-- 北海道、一時的に元のhtml表記をコメントアウト中 -->
+          <% if false %>
+          <a href="#">
+            <div id="hokkaido" class="hokkaido-tohoku">
+              <p>北海道</p>
+            </div>
+          </a>
+          <% end %>
+          <!-- ここまで -->
+          
+          <div id="hokkaido" class="hokkaido-tohoku">
+           <p>北海道<%#= link_to "北海道", prefecture_path(1) %></p>
+          </div>
+
+          <!-- <a href="#"> -->
+            <div id="aomori" class="hokkaido-tohoku">
+              <p>青森<%#= link_to "青森", prefecture_path(2) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="akita" class="hokkaido-tohoku">
+              <p>秋田<%#= link_to "秋田", prefecture_path(3) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="iwate" class="hokkaido-tohoku">
+              <p>岩手<%#= link_to "岩手", prefecture_path(4) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="yamagata" class="hokkaido-tohoku"> 
+              <p>山形<%#= link_to "山形", prefecture_path(5) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="miyagi" class="hokkaido-tohoku">
+              <p>宮城<%#= link_to "宮城", prefecture_path(6) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="fukushima" class="hokkaido-tohoku">
+              <p>福島<%#= link_to "福島", prefecture_path(7) %></p>
+            </div>
+          <!-- </a> -->
+        </div>
+      </div>
+      
+      <!-- 関東地方 -->
+      <div id="kantou">
+        <p class="area-title">関東</p>
+        <div class="area">
+          <!-- <a href="#"> -->
+            <div id="gunma" class="kanto">
+              <p>群馬<%#= link_to "群馬", prefecture_path(10) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="tochigi" class="kanto">
+              <p>栃木<%#= link_to "栃木", prefecture_path(9) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="ibaraki" class="kanto">
+              <p>茨城<%#= link_to "茨城", prefecture_path(8) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="saitama" class="kanto">
+              <p>埼玉<%#= link_to "埼玉", prefecture_path(11) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="chiba" class="kanto">
+              <p>千葉<%#= link_to "千葉", prefecture_path(12) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="tokyo" class="kanto">
+              <p>東京<%#= link_to "東京", prefecture_path(13) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="kanagawa" class="kanto">
+              <p>神奈川<%#= link_to "神奈川", prefecture_path(14) %></p>
+            </div>
+          <!-- </a> -->
+        </div>
+      </div>
+      
+      <!-- 中部地方 -->
+      <div id="tyubu" class="clearfix">
+        <p class="area-title">中部</p>
+        <div class="area">
+          <!-- <a href="#"> -->
+            <div id="nigata" class="chubu">
+              <p>新潟<%#= link_to "新潟", prefecture_path(18) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="toyama" class="chubu">
+              <p>富山<%#= link_to "富山", prefecture_path(19) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="ishikawa" class="chubu">
+              <p>石川<%#= link_to "石川", prefecture_path(20) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="fukui" class="chubu">
+              <p>福井</p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="nagano" class="chubu">
+              <p>長野<%#= link_to "長野", prefecture_path(17) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="gifu" class="chubu">
+              <p>岐阜<%#= link_to "岐阜", prefecture_path(22) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="yamanashi" class="chubu">
+              <p>山梨<%#= link_to "山梨", prefecture_path(16) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="aichi" class="chubu">
+              <p>愛知<%#= link_to "愛知", prefecture_path(21) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="shizuoka" class="chubu">
+              <p>静岡<%#= link_to "静岡", prefecture_path(15) %></p>
+            </div>
+          <!-- </a> -->
+        </div>
+      </div>
+      
+      <!-- 近畿地方 -->
+      <div id="kinki" class="clearfix">
+        <p class="area-title">近畿</p>
+        <div class="area">
+          <!-- <a href="#"> -->
+            <div id="kyoto" class="kinki">
+              <p>京都<%#= link_to "京都", prefecture_path(28) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="shiga" class="kinki">
+              <p>滋賀<%#= link_to "滋賀", prefecture_path(24) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="osaka" class="kinki">
+              <p>大阪<%#= link_to "大阪", prefecture_path(27) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="nara" class="kinki">
+              <p>奈良<%#= link_to "奈良", prefecture_path(26) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="mie" class="kinki">
+              <p>三重<%#= link_to "三重", prefecture_path(23) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="wakayama" class="kinki">
+              <p>和歌山<%#= link_to "和歌山", prefecture_path(25) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="hyougo" class="kinki">
+              <p>兵庫<%#= link_to "兵庫", prefecture_path(29) %></p>
+            </div>
+          <!-- </a> -->
+        </div>
+      </div>
+      
+      <!-- 中国地方 -->
+      <div id="tyugoku" class="clearfix">
+        <p class="area-title">中国</p>
+        <div class="area">
+          <!-- <a href="#"> -->
+            <div id="tottori" class="chugoku">
+              <p>鳥取<%#= link_to "鳥取", prefecture_path(32) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="okayama" class="chugoku">
+              <p>岡山<%#= link_to "岡山", prefecture_path(30) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="shimane" class="chugoku">
+              <p>島根<%#= link_to "島根", prefecture_path(33) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="hiroshima" class="chugoku">
+              <p>広島<%#= link_to "広島", prefecture_path(31) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="yamaguchi" class="chugoku">
+              <p>山口<%#= link_to "山口", prefecture_path(38) %></p>
+            </div>
+          <!-- </a> -->
+        </div>
+      </div>
+      
+      <!-- 四国 -->
+      <div id="shikoku" class="clearfix">
+        <p class="area-title">四国</p>
+        <div class="area">
+          <!-- <a href="#"> -->
+            <div id="kagawa" class="shikoku">
+              <p>香川<%#= link_to "香川", prefecture_path(34) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="ehime" class="shikoku">
+              <p>愛媛<%#= link_to "愛媛", prefecture_path(36) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="tokushima" class="shikoku">
+              <p>徳島<%#= link_to "徳島", prefecture_path(35) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="kouchi" class="shikoku">
+              <p>高知<%#= link_to "高知", prefecture_path(37) %></p>
+            </div>
+          <!-- </a> -->
+        </div>
+      </div>
+      
+      <!-- 九州・沖縄 -->
+      <div id="kyusyu" class="clearfix">
+        <p class="area-title">九州・沖縄</p>
+        <div class="area">
+          <!-- <a href="#"> -->
+            <div id="fukuoka" class="kyu-oki">
+              <p>福岡<%#= link_to "福岡", prefecture_path(39) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="saga" class="kyu-oki">
+              <p>佐賀<%#= link_to "佐賀", prefecture_path(40) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="nagasaki" class="kyu-oki">
+              <p>長崎<%#= link_to "長崎", prefecture_path(41) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="oita" class="kyu-oki">
+              <p>大分<%#= link_to "大分", prefecture_path(42) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="kumamoto" class="kyu-oki">
+              <p>熊本<%#= link_to "熊本", prefecture_path(43) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="miyazaki" class="kyu-oki">
+              <p>宮崎<%#= link_to "宮崎", prefecture_path(44) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="kagoshima" class="kyu-oki">
+              <p>鹿児島<%#= link_to "鹿児島", prefecture_path(45) %></p>
+            </div>
+          <!-- </a> -->
+          <!-- <a href="#"> -->
+            <div id="okinawa" class="kyu-oki">
+              <p>沖縄<%#= link_to "沖縄", prefecture_path(46) %></p>
+            </div>
+          <!-- </a> -->
+        </div>
+      </div>
+
+      <%#= link_to "沖縄", prefecture_path(46) %>
+      
+     </div> <!-- japan-map -->
+
+
+
+    <!-- コメントアウト -->
+    <% if false %>
+
+     <!-- テスト/検索フォーム -->
+    <%= render 'form' %>
+    <div id="searches">
+        <%= render 'search' %>
+    </div>
+
+    <%= form_with url: prefectures_path, method: :get do |f| %>
+        <%= f.text_field :search %>
+        <%= f.submit 'Search', name: nil %>
+    <% end %>
+    <% @prefectures.each do |prefecture| %>
+        <%= prefecture.name %>
+    <% end %>
+    <!-- コメントアウトここまで -->
+
+    <% end %>
+
+
+
+  </main>
+  <!-- JS読み込み -->
+  <%#= javascript_pack_tag 'index' %>
+
+  <%# <script src="main.js"></script> %>
+<%# </body> %>
+
+
