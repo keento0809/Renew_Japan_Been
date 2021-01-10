@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   get 'checks/create'
   get 'prefectures/index'
   get 'users/index'
-  get 'users/:id', to: 'users#show'
-  get 'users/new'
+#   get 'users/:id', to: 'users#show'
   get 'homes/index'
   get 'sessions/new'
 

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     # before_actionはコントローラに記述する
+    # before_action :user_params
     # loggged_in_user：ログイン済みユーザーか否かを確認
     before_action :logged_in_user, only: [:index, :edit, :update, :destory]
     # correct_user：正しいユーザーか確認
@@ -21,8 +22,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+        log_in(@user)
         flash[:success] = 'Success!'
-        redirect_to Something_path
+        redirect_to root_path
     else
         flash[:danger] = 'Failed!'
         render :new
@@ -44,12 +46,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def log_in(user)
+    session[:user_id] = user.id
+  end
+
   private
 
     # Userのストロングパラメーター
     # ストロングパラメーターはユーザー登録画面からPOSTされた情報のセキュリティのために実施。
     def user_params
-        params.require(:user).permit(:name, :email, :password_digest, :image)
+        params.require(:user).permit(:name, :email, :password_digest)
+        # params.permit(:name, :email, :password_digest)
     end
 
     # 正しいユーザーかどうか確認
