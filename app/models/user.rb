@@ -13,7 +13,7 @@ class User < ApplicationRecord
     
 
     # remember_token属性はDBには存在しない属性。attr_accessorを使って仮想的に利用できるようにする
-    attr_accessor :remember_token, :activation_token
+    attr_accessor :remember_token
 
     before_save :downcase_email # コールバックにメソッドを渡す
     before_create :create_activation_digest

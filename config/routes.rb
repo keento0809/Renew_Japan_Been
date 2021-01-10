@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  
+#   root 'users#new'
+  root 'homes#index' 
+  
   get 'checks/new'
   get 'checks/create'
   get 'prefectures/index'
@@ -19,9 +23,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  root 'homes#index';
-
-  get 'signup', to: 'users#new'
+  get '/signup', to: 'users#new'
   resources :users
 #   resources :prefectures do
 #       resources :like, only: [:create, :destroy]
