@@ -15,6 +15,7 @@ class PrefecturesController < ApplicationController
 
   def show
     @prefecture = Prefecture.find(params[:id])
+    # @prefecture = Prefecture.find_by_name(prefecture.name).id
   end
 
   def edit
