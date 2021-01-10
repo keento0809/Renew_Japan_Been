@@ -1,12 +1,12 @@
 class PrefecturesController < ApplicationController
-    before_action :set_search
+    # before_action :set_search
 
   def index
-    if params[:search]
-        @prefectures = Prefecture.where('name LIKE(?)',"%#{params[:search]}%")
-    else
+    # if params[:search]
+    #     @prefectures = Prefecture.where('name LIKE(?)',"%#{params[:search]}%")
+    # else
         @prefectures = Prefecture.all
-    end
+    # end
   end
 
   def new
