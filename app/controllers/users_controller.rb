@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     before_action :correct_user, only: [:edit, :update]
     # before_action :admin_user, only: :destroy
 
+
   def index
     @users = User.all.search(params[:search])
   end
@@ -46,16 +47,17 @@ class UsersController < ApplicationController
     end
   end
 
-  def log_in(user)
-    session[:user_id] = user.id
-  end
+#   def log_in(user)
+#     session[:user_id] = user.id
+#   end
+
 
   private
 
     # Userのストロングパラメーター
     # ストロングパラメーターはユーザー登録画面からPOSTされた情報のセキュリティのために実施。
     def user_params
-        params.require(:user).permit(:name, :email, :password_digest)
+        params.require(:user).permit(:name, :email, :password)
         # params.permit(:name, :email, :password_digest)
     end
 
