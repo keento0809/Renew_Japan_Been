@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   
   get 'checks/new'
   get 'checks/create'
-  get '/prefectures', to: 'prefectures#index'
+  # 都道府県詳細ページの戻るボタンでトップページに戻る際に必要
+  get 'prefectures/index'
   get 'users/index'
-#   get 'users/:id', to: 'users#show'
+  get 'users/:id', to: 'users#show'
   get 'homes/index'
   get 'sessions/new'
 
@@ -31,5 +32,5 @@ Rails.application.routes.draw do
 #   only: [:edit, :update, :show, :destory]
   resources :account_activations, only: [:edit]
 
-  resources :checks
+#   resources :checks
 end
