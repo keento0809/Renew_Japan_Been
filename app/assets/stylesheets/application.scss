@@ -1,7 +1,200 @@
-/* style.css */
 
+html, body{
+    overflow: hidden;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
 
-/* ヘッダー */
+body{
+    font-family: 'Varela Round', sans-serif;
+
+    main{
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        background-attachment: fixed;
+    }
+
+}
+
+// font-awesome読み込み
+@import "font-awesome";
+
+// Login
+.login-body{
+    min-height: 100vh;
+    background-image: url("https://drive.google.com/uc?id=1s6ZaAb9aNJByhWHEx5LyULESZtrE8QJW");
+    transition: background-image 2.5s ease;
+    background-size: cover;
+    background-position: center;
+    z-index: 997;
+
+    span{
+        color: #fff;
+    }
+    
+    .bg-layer{
+        min-height: 100vh;
+        background: rgba(0,0,0,0.7);
+        margin: 0;
+    }
+
+    .login-main{
+        z-index: 999;
+        background: rgba(255, 255, 255, 0.302);
+        padding: 4em 1em;
+
+        .create-account a{
+            color: #fff;
+            display: block;
+            padding: 4px;
+        }
+    }
+
+    h2{
+    text-align: center;
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #fff;
+    letter-spacing: 3px;
+    margin: 0;
+    padding: 1.2em 0 1em 0;
+    }
+
+    section{
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+.login-main{
+    .u-form{
+        margin-bottom: 8px;
+        .form-control{
+            width: 100%;
+            border: 2px solid #aaa;
+            padding: 12px;
+            padding-left: 30px;
+            border-radius: 8px;
+            outline: none;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .form-control:focus{
+            border-color: dodgerblue;
+            box-shadow: 0 0 8px 0 dodgerblue;
+        }
+    
+        i{
+            position: absolute;
+            left: 70px;
+            padding: 9px 8px;
+        }
+
+        .fa-user{
+            top: 157px;
+        }
+
+        .fa-lock{
+            top: 208px;
+        }
+
+    
+    }
+
+    .login-btn{
+        margin-top: 8px;
+        margin-left: 75px;
+        width: 80%;
+        padding: 8px;
+        border-radius: 8px;
+        background-color: aquamarine;
+        color: white;
+        border: none; 
+    }
+
+    .create-account{
+     margin-top: 16px;
+     text-align: center;
+    }
+}
+
+// iPhoneXR,11,11ProMax,XR 
+@media screen and(min-width:414px){
+    .login-body{
+        .login-main{
+            .u-form{
+                i{
+                    left: 80px;
+                }
+            }
+    
+            .login-btn{
+                width: 50%;
+            }
+        }
+
+    }
+}
+
+// PC,ダブレット横向き
+@media screen and(min-width:992px){
+    .login-body{
+
+        h2{
+            font-size: 72px;
+            padding: 0;
+            margin-bottom: 140px;
+        }
+        
+        .bg-layer{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .login-main{
+            width: 60%;
+            .u-form{
+                i{
+                    left: 260px;
+                }
+
+                .fa-user{
+                    top: 400px;
+                }
+
+                .fa-lock{
+                    top: 450px;
+                }
+            }
+
+            .login-btn{
+                margin-top: 30px;
+                margin-left: 150px;
+            }
+
+            
+        }
+
+    }
+    
+}
+
+// SIGNUP
+.new-user-container{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+// Header
 header{
     height: 60px;
     /* margin-bottom: 60px; */
@@ -28,16 +221,6 @@ header{
   
   /* ハンバーガーメニュー */
   @import url('https://fonts.googleapis.com/css?family=Varela+Round');
-  html, body {
-      overflow-x: hidden;
-      height: 100%;
-  }
-  body {
-      /* background: #fff; */
-      padding: 0;
-      margin: 0;
-      font-family: 'Varela Round', sans-serif;
-  }
   .header {
       display: block;
       margin: 0 auto;

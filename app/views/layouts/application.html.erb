@@ -40,6 +40,7 @@
     </div>
 
     <!-- ヘッダー -->
+    <% if false %>
     <header>
         <div class="header" id="js-header">
         <h1 class="header-title">Japan been</h1>
@@ -75,13 +76,19 @@
         </div> <!-- header -->
         <!-- ここまでハンバーガーメニュー -->
     </header>
+    <% end %>
     <!-- ヘッダーここまで -->
 
     <main>
         <%# <div class="main-container"> %>
+
+        <% if false %>
+
             <% flash.each do |message_type, message| %>
                 <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
             <% end %>
+
+        <% end %>
             <%= yield %>
         <%# </div> %>
     </main>
@@ -94,9 +101,8 @@
         </section>
     </footer>
     <!-- フッターここまで -->
-
-  </body>
   <!-- JS読み込み -->
   <%= javascript_pack_tag 'image-upload' %>
   <%= javascript_pack_tag 'index' %>
+  </body>
 </html>

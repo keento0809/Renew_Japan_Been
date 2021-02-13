@@ -1,0 +1,15 @@
+current directory: /Users/Yuto.Y/Desktop/Japan_been_rails/vendor/bundlea/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/Yuto.Y/.rbenv/versions/2.7.2/bin/ruby -I /Users/Yuto.Y/.rbenv/versions/2.7.2/lib/ruby/2.7.0 -r ./siteconf20210118-2829-13ok3j4.rb extconf.rb
+creating Makefile
+
+current directory: /Users/Yuto.Y/Desktop/Japan_been_rails/vendor/bundlea/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/Yuto.Y/Desktop/Japan_been_rails/vendor/bundlea/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/Yuto.Y/Desktop/Japan_been_rails/vendor/bundlea/ruby/2.7.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20210118-2829-lc1elu/skiptrace/internal

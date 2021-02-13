@@ -1,5 +1,5 @@
 <div class="new-user-container">
-    <h1>SIGNUP</h1>
+    <h1>SIGN UP</h1>
     <%= form_with(model: @user, local: true) do |f| %>
         <section class="u-form">
             <%= f.label :name %>
@@ -16,7 +16,7 @@
         <section class="u-form">
             <span>Remember on this controller</span>
         </section>
-        <%= f.submit "SUBMIT", class: '' %>
+        <%= f.submit "Join Now!", class: '' %>
     <% end %>
     <%= link_to "TOP", root_url %>
 </div>

@@ -1,9 +1,45 @@
-<h2>LOGIN NOW!</h2>
+<% if false %>
+<head>
+<%= javascript_include_tag "index.js" %>
+</head>
+<% end %>
 
-<p>You need to login.</p>
+<div class="login-body" id='slideshow'>
+<div class="bg-layer">
+<h2>Japan been</h2>
 
-<%= link_to "LOGIN", login_path %>
+<section class="login-main">
+  <% if false %>
+  <p>You need to login.</p>
 
-<p>New User? Sign up here!</p>
+  <%= link_to "LOGIN", login_path %>
+  <% end %>
 
-<%= link_to "SIGNUP", signup_path %>
+  <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+        <section class="u-form">
+            <%= f.email_field :email, placeholder:"Email", class: 'form-control' %>
+            <i class="fas fa-user"></i>
+        </section>
+        <section class="u-form">
+            <%= f.password_field :password, placeholder:"Password", class: 'form-control' %>
+            <i class="fas fa-lock"></i>
+        </section>
+        <section class="u-form">
+            <%= f.label :remember_me do %>
+                <%= f.check_box :remember_me, id: 'not-checkbox' %>
+                <span>REMEMBER ME</span>
+            <% end %>
+        </section>
+        <%= f.submit "LOGIN", class: 'login-btn' %>
+    <% end %>
+
+        <section class="create-account">
+        <span>New User? Sign up here!</span>
+
+        <%= link_to "CREATE ACCOUNT", signup_path %>
+      </section>
+</section>
+</div>
+
+</div>
+
