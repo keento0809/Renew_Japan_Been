@@ -1,61 +1,63 @@
-
-html, body{
-    overflow: hidden;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    font-size: 100%;
-    vertical-align: baseline;
+html,
+body {
+  // 本田勝手に修正しました
+  overflow: auto;
+  //   overflow: hidden;　#元のコード
+  //   ここまで
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
 }
 
-body{
-    font-family: 'Varela Round', sans-serif;
+body {
+  font-family: "Varela Round", sans-serif;
 
-    main{
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        background-attachment: fixed;
-    }
-
+  main {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background-attachment: fixed;
+  }
 }
 
 // font-awesome読み込み
 @import "font-awesome";
 
 // Login
-.login-body{
+.login-body {
+  min-height: 100vh;
+  background-image: url("https://drive.google.com/uc?id=1s6ZaAb9aNJByhWHEx5LyULESZtrE8QJW");
+  transition: background-image 2.5s ease;
+  background-size: cover;
+  background-position: center;
+  z-index: 997;
+
+  span {
+    color: #fff;
+  }
+
+  .bg-layer {
     min-height: 100vh;
-    background-image: url("https://drive.google.com/uc?id=1s6ZaAb9aNJByhWHEx5LyULESZtrE8QJW");
-    transition: background-image 2.5s ease;
-    background-size: cover;
-    background-position: center;
-    z-index: 997;
+    background: rgba(0, 0, 0, 0.7);
+    margin: 0;
+  }
 
-    span{
-        color: #fff;
+  .login-main {
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.302);
+    padding: 4em 1em;
+
+    .create-account a {
+      color: #fff;
+      display: block;
+      padding: 4px;
     }
-    
-    .bg-layer{
-        min-height: 100vh;
-        background: rgba(0,0,0,0.7);
-        margin: 0;
-    }
+  }
 
-    .login-main{
-        z-index: 999;
-        background: rgba(255, 255, 255, 0.302);
-        padding: 4em 1em;
-
-        .create-account a{
-            color: #fff;
-            display: block;
-            padding: 4px;
-        }
-    }
-
-    h2{
+  h2 {
     text-align: center;
     font-size: 30px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -63,480 +65,470 @@ body{
     letter-spacing: 3px;
     margin: 0;
     padding: 1.2em 0 1em 0;
-    }
+  }
 
-    section{
-        width: 80%;
-        margin: 0 auto;
-    }
+  section {
+    width: 80%;
+    margin: 0 auto;
+  }
 }
 
-.login-main{
-    .u-form{
-        margin-bottom: 8px;
-        .form-control{
-            width: 100%;
-            border: 2px solid #aaa;
-            padding: 12px;
-            padding-left: 30px;
-            border-radius: 8px;
-            outline: none;
-            box-sizing: border-box;
-            position: relative;
-        }
-
-        .form-control:focus{
-            border-color: dodgerblue;
-            box-shadow: 0 0 8px 0 dodgerblue;
-        }
-    
-        i{
-            position: absolute;
-            left: 70px;
-            padding: 9px 8px;
-        }
-
-        .fa-user{
-            top: 157px;
-        }
-
-        .fa-lock{
-            top: 208px;
-        }
-
-    
+.login-main {
+  .u-form {
+    margin-bottom: 8px;
+    .form-control {
+      width: 100%;
+      border: 2px solid #aaa;
+      padding: 12px;
+      padding-left: 30px;
+      border-radius: 8px;
+      outline: none;
+      box-sizing: border-box;
+      position: relative;
     }
 
-    .login-btn{
-        margin-top: 8px;
-        margin-left: 75px;
-        width: 80%;
-        padding: 8px;
-        border-radius: 8px;
-        background-color: aquamarine;
-        color: white;
-        border: none; 
+    .form-control:focus {
+      border-color: dodgerblue;
+      box-shadow: 0 0 8px 0 dodgerblue;
     }
 
-    .create-account{
-     margin-top: 16px;
-     text-align: center;
+    i {
+      position: absolute;
+      left: 70px;
+      padding: 9px 8px;
     }
+
+    .fa-user {
+      top: 157px;
+    }
+
+    .fa-lock {
+      top: 208px;
+    }
+  }
+
+  .login-btn {
+    margin-top: 8px;
+    margin-left: 75px;
+    width: 80%;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: aquamarine;
+    color: white;
+    border: none;
+  }
+
+  .create-account {
+    margin-top: 16px;
+    text-align: center;
+  }
 }
 
-// iPhoneXR,11,11ProMax,XR 
-@media screen and(min-width:414px){
-    .login-body{
-        .login-main{
-            .u-form{
-                i{
-                    left: 80px;
-                }
-            }
-    
-            .login-btn{
-                width: 50%;
-            }
+// iPhoneXR,11,11ProMax,XR
+@media screen and(min-width:414px) {
+  .login-body {
+    .login-main {
+      .u-form {
+        i {
+          left: 80px;
         }
+      }
 
+      .login-btn {
+        width: 50%;
+      }
     }
+  }
 }
 
 // PC,ダブレット横向き
-@media screen and(min-width:992px){
-    .login-body{
-
-        h2{
-            font-size: 72px;
-            padding: 0;
-            margin-bottom: 140px;
-        }
-        
-        .bg-layer{
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        .login-main{
-            width: 60%;
-            .u-form{
-                i{
-                    left: 260px;
-                }
-
-                .fa-user{
-                    top: 400px;
-                }
-
-                .fa-lock{
-                    top: 450px;
-                }
-            }
-
-            .login-btn{
-                margin-top: 30px;
-                margin-left: 150px;
-            }
-
-            
-        }
-
+@media screen and(min-width:992px) {
+  .login-body {
+    h2 {
+      font-size: 72px;
+      padding: 0;
+      margin-bottom: 140px;
     }
-    
+
+    .bg-layer {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .login-main {
+      width: 60%;
+      .u-form {
+        i {
+          left: 260px;
+        }
+
+        .fa-user {
+          top: 400px;
+        }
+
+        .fa-lock {
+          top: 450px;
+        }
+      }
+
+      .login-btn {
+        margin-top: 30px;
+        margin-left: 150px;
+      }
+    }
+  }
 }
 
 // SIGNUP
-.new-user-container{
-    width: 80%;
-    margin: 0 auto;
-    text-align: center;
+.new-user-container {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 // Header
-header{
-    height: 60px;
-    /* margin-bottom: 60px; */
-    color: #fff;
-    display: inline-block;
-    align-items: center;
-    width: 100%;
-  }
-  
-  #js-header.disable{
-      display: none;
-      
-  }
-  
-  .header-title{
-      margin: 0 auto;
-      line-height: 60px
-  }
-  
-  
-  #js-search-icon{
-      line-height: 60px    
-  }
-  
-  /* ハンバーガーメニュー */
-  @import url('https://fonts.googleapis.com/css?family=Varela+Round');
-  .header {
-      display: block;
-      margin: 0 auto;
-      width: 100%;
-      max-width: 100%;
-      box-shadow: none;
-      background-color: rgb(114, 233, 248);
-      position: fixed;
-      height: 60px;
-      overflow: hidden;
-      display: flex;
-      justify-content: space-between;
-      z-index: 20;
-  }
-  
-  
-  .mainInner{
-      display: table;
-      height: 100%;
-      width: 100%;
-      text-align: center;
-  }
-  .mainInner div{
-      display:table-cell;
-      vertical-align: middle;
-      font-size: 3em;
-      font-weight: bold;
-      letter-spacing: 1.25px;
-  }
-  /* スライドメニュー */
-  #sidebarMenu {
-      height: 100%;
-      position: fixed;
-      left: 0;
-      width: 250px;
-      margin-top: 60px;
-      transform: translateX(-250px);
-      transition: transform 250ms ease-in-out;
-      background: rgba(199, 193, 193, 0.377);
-      /* background: linear-gradient(180deg, #FC466B 0%, #3F5EFB 100%); */
-  }
-  .sidebarMenuInner{
-      margin:0;
-      padding:0;
-      border-top: 1px solid rgba(255, 255, 255, 0.10);
-  }
-  .sidebarMenuInner li{
-      list-style: none;
-      color: rgb(15, 14, 14);
-      text-transform: uppercase;
-      font-weight: bold;
-      padding: 20px;
-      cursor: pointer;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.10);
-  }
-  .sidebarMenuInner li span{
-      display: block;
-      font-size: 14px;
-      color:rgb(15, 14, 14);
-  }
-  .sidebarMenuInner li a{
-      color:rgb(15, 14, 14);
-      text-transform: uppercase;
-      font-weight: bold;
-      cursor: pointer;
-      text-decoration: none;
-  }
-  input[type="checkbox"]:checked ~ #sidebarMenu {
-      transform: translateX(0);
-  }
-  
-  input[type=checkbox] {
-      transition: all 0.3s;
-      box-sizing: border-box;
-      display: none;
-  }
-  .sidebarIconToggle {
-      transition: all 0.3s;
-      box-sizing: border-box;
-      cursor: pointer;
-      position: absolute;
-      z-index: 99;
-      height: 100%;
-      width: 100%;
-      top: 22px;
-      left: 15px;
-      height: 22px;
-      width: 22px;
-  }
-  .spinner {
-      transition: all 0.3s;
-      box-sizing: border-box;
-      position: absolute;
-      height: 3px;
-      width: 100%;
-      background-color: #fff;
-  }
-  .horizontal {
-      transition: all 0.3s;
-      box-sizing: border-box;
-      position: relative;
-      float: left;
-      margin-top: 3px;
-  }
-  .diagonal.part-1 {
-      position: relative;
-      transition: all 0.3s;
-      box-sizing: border-box;
-      float: left;
-  }
-  .diagonal.part-2 {
-      transition: all 0.3s;
-      box-sizing: border-box;
-      position: relative;
-      float: left;
-      margin-top: 3px;
-  }
-  input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
-      transition: all 0.3s;
-      box-sizing: border-box;
-      opacity: 0;
-  }
-  input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
-      transition: all 0.3s;
-      box-sizing: border-box;
-      transform: rotate(135deg);
-      margin-top: 8px;
-  }
-  input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
-      transition: all 0.3s;
-      box-sizing: border-box;
-      transform: rotate(-135deg);
-      margin-top: -9px;
-  }
-  
-  nav{
-    background-color: rgb(114, 233, 248);
-  }
-  
-  nav>li{
-    list-style: none;
-    
-  }
-  
-  .search>.fa-search{
-    color: #ffffff;
-  }
-  
-  /* モーダル部分 */
-  .modal>ul>a>li{
-      list-style: none;
-  }
-  
-  /* ボタン */
-  #open,.close{
-      cursor: pointer;
-      width: 200px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      text-align: center;
-      padding: 12px;
-      margin: 16px auto 0;
-  }
-  
-  .close:hover{
-      background-color:  rgb(135, 229, 241);;
-  }
-  
-  .mask{
-      background: rgba(0, 0, 0, 0.487);
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      left: 0;
-      z-index: 2;
-  }
-  
-  .modal{
-      background-color: #fff;
-      width: 300px;
-      position: absolute;
-      top:  200px;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      z-index: 3;
-  }
-  
-  .mask.hidden{
-      display: none;
-  }
-  
-  .modal>ul{
-      display: flex;
-      flex-wrap: wrap;
-      flex-direction: column;
-      height: 150px;
-      /* column-count: 2; */
-  }
-  
-  .modal>ul>a>li{
-      padding: 5px;
-  }
-  
-  
-  /* モーダルは上の方に隠しておく */
-  #modal1.hidden,#modal2.hidden,#modal3.hidden,#modal4.hidden,#modal5.hidden,#modal6.hidden,#modal7.hidden{
-      transform: translate(0,-500px);
-  }
-  
-  /* サーチアイコンをクリックした時に出てくるモーダル */
-  #js-search-icon,#js-cross,#js-check{
-      cursor: pointer;
-  }
-  .search-modal{
-      width: 100%;
-      height: 100%;
-      /* position: fixed; */
-      position: absolute;
-      top: 100px;
-      z-index: 10;
-  }
-  
-  .search-header{
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      background-color: rgb(135, 229, 241);
-      color: #fff;
-  }
-  
-  .search-form{
-      display: flex;
-      margin-top: 10px;
-      
-  }
-  
-  #search-input{
-      position: relative;
-      border: 1px solid black;
-      height: 30px;
-      width: 90%;
-      z-index: 1;
-  }
-  
-  #js-pref-list>li{
-      list-style: none;
-      height: 40px;
-      font-size: 20px;
-      line-height: 40px;
-      color: rgb(163, 159, 163);
-      cursor: pointer;
-  }
-  
-  #js-pref-list>.selected{
-      color: turquoise;
-  }
-  
-  .search-form >.fa-search-plus{
-      position: absolute;
-      top: 145px;
-      left: 5px;
-      z-index: 2;
-  }
-  
-  .search-form>span{
-      display: none;
-  }
-  
-  #js-search-modal.hidden{
-      /* transform: translate(0,1500px); */
-      display: none;
-  }
-  
-  
-  
-  main{
-      height: 100%;
-      
-  }
-  
-  /* フッター */
-  footer{
-      background-color: rgba(109, 106, 106, 0.211);
-      height: 100px;
-  }
-  
-  #js-test{
-      cursor: pointer;
-  }
-  
-  footer>.snsShare>ul{
-      padding-left: 10px;
-      margin-top: 0;
-      width: 50%;
-  }
-  
-  footer>.snsShare>ul>li{
-      list-style: none;
-  }
+header {
+  height: 60px;
+  /* margin-bottom: 60px; */
+  color: #fff;
+  display: inline-block;
+  align-items: center;
+  width: 100%;
+}
 
+#js-header.disable {
+  display: none;
+}
 
+.header-title {
+  margin: 0 auto;
+  line-height: 60px;
+}
+
+#js-search-icon {
+  line-height: 60px;
+}
+
+/* ハンバーガーメニュー */
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+.header {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  box-shadow: none;
+  background-color: rgb(114, 233, 248);
+  position: fixed;
+  height: 60px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  z-index: 20;
+}
+
+.mainInner {
+  display: table;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+.mainInner div {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 3em;
+  font-weight: bold;
+  letter-spacing: 1.25px;
+}
+/* スライドメニュー */
+#sidebarMenu {
+  height: 100%;
+  position: fixed;
+  left: 0;
+  width: 250px;
+  margin-top: 60px;
+  transform: translateX(-250px);
+  transition: transform 250ms ease-in-out;
+  background: rgba(199, 193, 193, 0.377);
+  /* background: linear-gradient(180deg, #FC466B 0%, #3F5EFB 100%); */
+}
+.sidebarMenuInner {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.sidebarMenuInner li {
+  list-style: none;
+  color: rgb(15, 14, 14);
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 20px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.sidebarMenuInner li span {
+  display: block;
+  font-size: 14px;
+  color: rgb(15, 14, 14);
+}
+.sidebarMenuInner li a {
+  color: rgb(15, 14, 14);
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+input[type="checkbox"]:checked ~ #sidebarMenu {
+  transform: translateX(0);
+}
+
+input[type="checkbox"] {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  display: none;
+}
+.sidebarIconToggle {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: absolute;
+  z-index: 99;
+  height: 100%;
+  width: 100%;
+  top: 22px;
+  left: 15px;
+  height: 22px;
+  width: 22px;
+}
+.spinner {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: #fff;
+}
+.horizontal {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  margin-top: 3px;
+}
+.diagonal.part-1 {
+  position: relative;
+  transition: all 0.3s;
+  box-sizing: border-box;
+  float: left;
+}
+.diagonal.part-2 {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  position: relative;
+  float: left;
+  margin-top: 3px;
+}
+input[type="checkbox"]:checked ~ .sidebarIconToggle > .horizontal {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  opacity: 0;
+}
+input[type="checkbox"]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  transform: rotate(135deg);
+  margin-top: 8px;
+}
+input[type="checkbox"]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+  transition: all 0.3s;
+  box-sizing: border-box;
+  transform: rotate(-135deg);
+  margin-top: -9px;
+}
+
+nav {
+  background-color: rgb(114, 233, 248);
+}
+
+nav > li {
+  list-style: none;
+}
+
+.search > .fa-search {
+  color: #ffffff;
+}
+
+/* モーダル部分 */
+.modal > ul > a > li {
+  list-style: none;
+}
+
+/* ボタン */
+#open,
+.close {
+  cursor: pointer;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  padding: 12px;
+  margin: 16px auto 0;
+}
+
+.close:hover {
+  background-color: rgb(135, 229, 241);
+}
+
+.mask {
+  background: rgba(0, 0, 0, 0.487);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.modal {
+  background-color: #fff;
+  width: 300px;
+  position: absolute;
+  top: 200px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 3;
+}
+
+.mask.hidden {
+  display: none;
+}
+
+.modal > ul {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  height: 150px;
+  /* column-count: 2; */
+}
+
+.modal > ul > a > li {
+  padding: 5px;
+}
+
+/* モーダルは上の方に隠しておく */
+#modal1.hidden,
+#modal2.hidden,
+#modal3.hidden,
+#modal4.hidden,
+#modal5.hidden,
+#modal6.hidden,
+#modal7.hidden {
+  transform: translate(0, -500px);
+}
+
+/* サーチアイコンをクリックした時に出てくるモーダル */
+#js-search-icon,
+#js-cross,
+#js-check {
+  cursor: pointer;
+}
+.search-modal {
+  width: 100%;
+  height: 100%;
+  /* position: fixed; */
+  position: absolute;
+  top: 100px;
+  z-index: 10;
+}
+
+.search-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(135, 229, 241);
+  color: #fff;
+}
+
+.search-form {
+  display: flex;
+  margin-top: 10px;
+}
+
+#search-input {
+  position: relative;
+  border: 1px solid black;
+  height: 30px;
+  width: 90%;
+  z-index: 1;
+}
+
+#js-pref-list > li {
+  list-style: none;
+  height: 40px;
+  font-size: 20px;
+  line-height: 40px;
+  color: rgb(163, 159, 163);
+  cursor: pointer;
+}
+
+#js-pref-list > .selected {
+  color: turquoise;
+}
+
+.search-form > .fa-search-plus {
+  position: absolute;
+  top: 145px;
+  left: 5px;
+  z-index: 2;
+}
+
+.search-form > span {
+  display: none;
+}
+
+#js-search-modal.hidden {
+  /* transform: translate(0,1500px); */
+  display: none;
+}
+
+main {
+  height: 100%;
+}
+
+/* フッター */
+footer {
+  background-color: rgba(109, 106, 106, 0.211);
+  height: 100px;
+}
+
+#js-test {
+  cursor: pointer;
+}
+
+footer > .snsShare > ul {
+  padding-left: 10px;
+  margin-top: 0;
+  width: 50%;
+}
+
+footer > .snsShare > ul > li {
+  list-style: none;
+}
 
 /* 修正箇所css */
 
 #not-checkbox {
-    display: inline-block;
+  display: inline-block;
 }
 
 /* modalのpadding適用 */
-.modal>ul>li {
-    padding: 5px;
+.modal > ul > li {
+  padding: 5px;
 }
 
 /* modalのlist-style適用 */
-.modal>ul>li {
-    list-style: none;
+.modal > ul > li {
+  list-style: none;
 }

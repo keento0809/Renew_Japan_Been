@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
     include SessionsHelper
+    # include PrefecturesHelper
 
-    before_action :set_search, :get_prefectures, :index
+    before_action :logged_in_user
+    before_action :set_search, :get_prefectures, :set_all_memories, only: :index
 
     
     def set_search
@@ -17,7 +19,23 @@ class ApplicationController < ActionController::Base
     def index
         @prefectures = Prefecture.all
         @prefectures = @prefectures.where('name LIKE ?', "%#{params[:search]}%") if params[:search].present?
-      end
+    end
+
+    def set_all_memories
+        @memories = Memory.all
+    end
+
+    # def set_check
+    #     # ログイン中のユーザーが作成したCheckが存在するか確認
+    #     # Checkが存在する場合、そのCheckを変数@checkへ代入する
+    #     if !@check.nil?
+    #         @check = Check.find(user_id: current_user.id)
+    #     end
+    # end
+
+    # def prefecture_name_params
+    #     params.require(:check).permit(prefecture_name: [])
+    # end
 
     # def current_user
     #     if (user_id = session[:user_id])
@@ -40,6 +58,7 @@ class ApplicationController < ActionController::Base
         def logged_in_user
             # logged_in?：ユーザーがログインしていればtrue、その他ならfalseを返す
             unless logged_in?
+                flash[:danger] = "Please log in."
                 redirect_to login_url
             end
         end

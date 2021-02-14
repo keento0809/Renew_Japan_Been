@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_09_105227) do
+ActiveRecord::Schema.define(version: 2021_02_13_092601) do
 
   create_table "checks", force: :cascade do |t|
     t.integer "check_id"
@@ -20,9 +20,27 @@ ActiveRecord::Schema.define(version: 2021_01_09_105227) do
     t.string "prefecture_name"
   end
 
+  create_table "labels", force: :cascade do |t|
+    t.integer "prefecture_id"
+    t.string "prefecture_name"
+    t.integer "check_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "prefecture_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "memories", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "prefecture_id"
+    t.string "prefecture_name"
+    t.string "comment"
+    t.string "img"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
