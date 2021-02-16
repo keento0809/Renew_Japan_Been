@@ -1,5 +1,6 @@
 class MemoriesController < ApplicationController
   before_action :set_memory, only: [:show, :edit, :update]
+  before_action :logged_in_user
     # before_action :set_edit_memory, only: [:edit]
 
   def index

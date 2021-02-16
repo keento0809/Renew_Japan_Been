@@ -1,5 +1,6 @@
 class PrefecturesController < ApplicationController
   before_action :set_search
+  before_action :logged_in_user
   # before_action :set_memory_img, only: [:show, :edit]
 
 def index

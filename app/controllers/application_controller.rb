@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
     include SessionsHelper
     # include PrefecturesHelper
 
-    before_action :logged_in_user
+    # before_action :logged_in_user
     before_action :set_search, :get_prefectures, :set_all_memories, only: :index
 
     
@@ -59,7 +59,8 @@ class ApplicationController < ActionController::Base
             # logged_in?：ユーザーがログインしていればtrue、その他ならfalseを返す
             unless logged_in?
                 flash[:danger] = "Please log in."
-                redirect_to login_url
+                # render 'home/index'
+                redirect_to root_url
             end
         end
 

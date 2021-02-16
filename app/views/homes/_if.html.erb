@@ -235,43 +235,11 @@
       <% end %>
       <!-- コメントアウトここまで -->
 
-
-
-      <!-- 書き換え版 -->
-        
-
-      <% if false %> <!-- オリジナル版コメントアウト -->
       <article>
         <!-- 配列で追加するとDOM操作で追加する？それともあらかじめ作成しておく？→とりあえずDOMでcreateElement使ってみる。idをpref1~47としてDOMで付与していく -->
-        <ul>
-          <!-- ここに県を追加していく -->
-          <li><i class="fas fa-check-circle"></i></li>
-        </ul>
-      </article>
-      <% end %> 
-      <!-- コメントアウトここまで -->
-
-
-      <article>
-        <!-- 配列で追加するとDOM操作で追加する？それともあらかじめ作成しておく？→とりあえずDOMでcreateElement使ってみる。idをpref1~47としてDOMで付与していく -->
-        <ul id="js-pref-list"> 
+        <!--　<ul id="js-pref-list"> -->
         <!-- ここに県を追加していく -->
         <!-- <li><i class="fas fa-check-circle"></i></li> -->
-        </ul>
-
-
-
-        <% if false %>
-
-        　<%# 検索した場合は@search_prefecturesで検索した結果が返ってくるので、@search_prefecturesへ書き換える %>
-        　<% @search_Prefectures.each do |p| %>
-            <li><%= p.name %></li>
-            <%# <i class="fas fa-check-circle"></i> %>
-            <%#= p.name %>
-        　<% end %>
-
-        <% end %>
-
       </article>
     </div>
 

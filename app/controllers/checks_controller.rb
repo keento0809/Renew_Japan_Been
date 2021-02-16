@@ -1,5 +1,6 @@
 class ChecksController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user
   # before_action :check_string, only: [:create, :update]
 
 def index
@@ -12,12 +13,14 @@ end
 
 # test
 def create
-  @check = Check.new(prefecture_ids_params)
-  if @check.save
+  # if !checks_count_must_be_one
+    @check = Check.new(prefecture_ids_params)
+    if @check.save!
       redirect_to root_url, notice: 'Create new check'
-  else
-      render :new
-  end
+    else
+      render 'homes/index', notice: 'Create check failed or you already have one.'
+    end
+  # end
 end
 # test ends here
 
@@ -59,5 +62,14 @@ private
       # やはりupdate時は.requireを付けないと内容が更新されない
       params.require(:check).permit(:user_id, prefecture_ids: [])
   end
+
+  # def checks_count_must_be_one
+  #   @user = current_user
+  #   if @user.checks.count >= MAX_CHECKS_COUNT
+  #     flash[:danger] = 'You cannot make the check more than one.'    
+  #     render 'homes/index'
+  #   end
+  #   # errors.add(:base, "checks count limit: #{MAX_CHECKS_COUNT}") if user.checks.count >= MAX_CHECKS_COUNT
+  # end
 
 end

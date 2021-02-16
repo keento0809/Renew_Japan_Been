@@ -15,6 +15,7 @@
   <%= link_to "LOGIN", login_path %>
   <% end %>
 
+  <%# if false %>
   <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
         <section class="u-form">
             <%= f.email_field :email, placeholder:"Email", class: 'form-control' %>
@@ -32,6 +33,7 @@
         </section>
         <%= f.submit "LOGIN", class: 'login-btn' %>
     <% end %>
+    <%# end %>
 
         <section class="create-account">
         <span>New User? Sign up here!</span>

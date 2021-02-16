@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
+
+
   def new
+
   end
 
   def create
@@ -12,7 +15,7 @@ class SessionsController < ApplicationController
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
         redirect_to root_url
     else
-        flash.now[:danger] = 'Failed!'
+        flash.now[:danger] = 'Login failed!'
         # railsではコントローラ名とメソッド名からrenderメソッドを記載しなくても自動的にレンダリングするビューを特定してくれる
         render 'homes/index'
     end
