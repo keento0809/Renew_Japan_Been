@@ -37,6 +37,12 @@ def update
   end
 end
 
+def destroy
+  @check = Check.find(params[:id])
+  @check.destroy
+  redirect_to root_url, notice: 'Check deleted.'
+end
+
 private
   def set_order
       @check = Check.find(params[:id])

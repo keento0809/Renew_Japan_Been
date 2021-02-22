@@ -14,6 +14,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # @userと定義しないとエラーとなる。原因不明
+    @memories = @user.memories.order('updated_at DESC')
+    # @memories = Memories.where(user_id: current_user.id)
   end
 
   def new
