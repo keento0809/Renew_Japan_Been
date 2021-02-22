@@ -1,4 +1,6 @@
-<p><%= @user.name %></p>
+<h2>User Info</h2>
+
+<p>Here is <%= @user.name %>'s page!</p>
 
 <div class="user-image">
     <%#= if @user.image? %>
@@ -6,7 +8,39 @@
     <%# else %>
         <%#= image_tag("") %>
     <%# end %>
+    <p>ここにユーザーイメージを追加したい。</p>
 </div>
-<p><%= @user.email %></p>
+<p>Email：<%= @user.email %></p>
 
+<div class="your-memories">
+    <h2>All Your Memories</h2>
+    <p>- - - - - - - - - - - - - - - - - - </p>
+    <%= @memories.each do |memory| %>
+        
+        <p>
+            Memory id：<%= memory.id %>
+        </p>
+        <p>
+            ユーザー名：<%= memory.user.name %>
+        </p>
+        <p>
+            Prefecture_id：<%= memory.prefecture_id %>
+        </p>
+        <p>
+            都道府県：<%= memory.prefecture_name %>
+        </p>
+        <p>
+            コメント：<%= memory.comment %>
+        </p>
+        <p>
+            写真：<img src="<%= memory.img %>" width="100">
+        </p>
+        <p>
+            <%= link_to "編集", edit_memory_path(memory.id) %>
+        </p>
+        <p>- - - - - - - - - - - - - - - - - - </p>
+    <% end %>
+</div>
+
+<%= link_to "Edit Your Info", edit_user_path(current_user.id) %>
 <%= link_to "BACK", root_url  %>

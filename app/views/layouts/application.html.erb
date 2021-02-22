@@ -22,7 +22,13 @@
     <section class="search-header">
       <i class="fas fa-times fa-2x" id="js-cross"></i>
       <h2>Select Prefecture</h2>
-      <i class="fas fa-check fa-2x" id='js-check'></i>
+      <%# Formの外からCheckのPostを実行する %>
+      <button type="submit" form="testBtn">
+        <i class="fas fa-check fa-2x" id='js-check' type="submit" form="testBtn"></i>
+      </button>
+
+      <%# 元の記述コメントアウト中 %>
+      <%# <i class="fas fa-check fa-2x" id='js-check'></i> %>
     </section>
     <form action="" class="search-form">
       <!-- <i class="fas fa-search-plus"></i> -->
@@ -35,7 +41,7 @@
       <!-- 配列で追加するとDOM操作で追加する？それともあらかじめ作成しておく？→とりあえずDOMでcreateElement使ってみる。idをpref1~47としてDOMで付与していく -->
       <ul id="js-pref-list"> 
         <!-- ここに県を追加していく -->
-          <%= form_with(model: @check, local: true) do |form| %>
+          <%= form_with(model: @check, local: true, id: 'testBtn') do |form| %>
             <%= form.hidden_field :user_id, :value => current_user.id %>
 
               <ul id="js-pref-list">
@@ -88,10 +94,10 @@
                 <li id="jsPref46" class="searchPref"><%= form.check_box :prefecture_ids, { multiple: true }, 46, nil %>沖縄</li>  
               </ul>
 
-            <%= form.submit %>
-            <%= form.button :type => "submit", style: 'border-style: none;' do %>
-              <i class='fas fa-check fa-2x'></i>
-            <% end %>
+            <%#= form.submit %>
+            <%#= form.button :type => "submit", style: 'border-style: none;' do %>
+              <%# <i class='fas fa-check fa-2x'></i> %>
+            <%# end %>
 
           <% end %>
 
@@ -128,7 +134,8 @@
 
             <!-- 書き換え版 -->
             <% if logged_in? %>
-                <li><%= link_to "ユーザー名：#{current_user.name}", user_path(current_user.id) %> </li>
+                <li><%= "ユーザー名：#{current_user.name}" %> </li>
+                <li><%= link_to "マイページ", user_path(current_user.id) %></li>
                 <li><%= link_to "登録情報の編集", edit_user_path(current_user.id) %></li>
                 <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
             <% end %>
