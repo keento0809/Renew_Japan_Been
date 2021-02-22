@@ -2,7 +2,7 @@ html,
 body {
   // 本田勝手に修正しました
   overflow: auto;
-  //   overflow: hidden;　#元のコード
+    // overflow: hidden;　#元のコード
   //   ここまで
   height: 100%;
   padding: 0;
@@ -182,10 +182,149 @@ body {
 }
 
 // SIGNUP
-.new-user-container {
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
+.signupBody{
+  min-height: 100vh;
+  background-image: url("https://drive.google.com/uc?id=1s6ZaAb9aNJByhWHEx5LyULESZtrE8QJW");
+  transition: background-image 2.5s ease;
+  background-size: cover;
+  background-position: center;
+  z-index: 990;
+  overflow-y: hidden;
+  
+  
+  .bg-layer {
+    min-height: 100vh;
+    background: rgba(182, 181, 181, 0.7);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
+  .new-user-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 999;
+    background: rgba(114, 113, 113, 0.596);
+    padding: 2em 1em;
+
+      h1,a{
+        color: #fff;
+      }
+
+
+      .form-control{
+        width: 80%;
+        margin-top: 8px;
+        padding: 12px;
+        padding-left: 30px;
+        border-radius: 8px;
+        border: 2px solid #aaa;
+        outline: none;
+        box-sizing: border-box;
+        position: relative;
+      }
+
+      .form-control:focus {
+        border-color: dodgerblue;
+        box-shadow: 0 0 8px 0 dodgerblue;
+      }
+
+      i{
+        position: absolute;
+        left: 72px;
+        padding: 9px 8px;
+      }
+
+      .fa-user{
+        top: 338px;
+      }
+
+      .fa-envelope{
+        top: 390px;
+      }
+
+      .fa-lock{
+        top: 442px;
+      }
+
+      
+
+      .createBtn{
+        width: 80%;
+        padding: 8px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+        background-color: rgb(137, 231, 243);
+        color: white;
+        border: none;
+      }
+    }
+}
+
+
+// iPhoneXR,11,11ProMax,XR
+@media screen and(min-width:414px){
+  .signupBody{
+    .bg-layer{
+      .new-user-container{
+        
+    
+        section{
+          i{
+            left: 80px;
+            touch-action: none;
+          }
+    
+          .fa-user{
+            top: 340px;
+          }
+
+          .fa-envelope{
+            top: 393px;
+          }
+
+          .fa-lock{
+            top: 443px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// PC,ダブレット横向き
+@media screen and(min-width:992px){
+  .new-user-container{
+    overflow: hidden;
+    section{
+      margin-bottom: 8px;
+      i{
+        left: 230px;
+      }
+
+      .fa-user{
+        top: 80px;
+      }
+
+      .fa-envelope{
+        top: 138px;
+      }
+
+      .fa-lock{
+        top: 195px;
+      }
+    }
+
+
+
+    .createBtn{
+      width: 50%;
+    }
+  }
 }
 
 // Header

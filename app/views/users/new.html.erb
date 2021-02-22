@@ -1,22 +1,24 @@
-<div class="new-user-container">
-    <h1>SIGN UP!!</h1>
-    <%= form_with(model: @user, local: true) do |f| %>
-        <section class="u-form">
-            <%= f.label :name %>
-            <%= f.text_field :name, class: 'form-control' %>
-        </section>
-        <section class="u-form">
-            <%= f.label :email %>
-            <%= f.email_field :email, class: 'form-control' %>
-        </section>
-        <section class="u-form">
-            <%= f.label :password %>
-            <%= f.password_field :password, class: 'form-control' %>
-        </section>
-        <section class="u-form">
-            <span>Remember on this controller</span>
-        </section>
-        <%= f.submit "Join Now!", class: '' %>
-    <% end %>
-    <%= link_to "TOP", root_url %>
+<div class='signupBody'>
+    <div class='bg-layer'>
+        <div class="new-user-container">
+            <h1>Welcome!!</h1>
+            <%= form_with(model: @user, local: true) do |f| %>
+                <section class="u-form,newName">
+                    <%= f.text_field :name, placeholder:"name",class: 'form-control' %>
+                    <i class="fas fa-user"></i>
+                </section>
+                <section class="u-form,newEmail">
+                    <%= f.email_field :email, placeholder:"email",class: 'form-control' %>
+                    <i class="fas fa-envelope"></i>
+                </section>
+                <section class="u-form,newPassword">
+                    <%= f.password_field :password, placeholder:"password",class: 'form-control' %>
+                    <i class="fas fa-lock"></i>
+                </section>
+                
+                <%= f.submit "CREATE", class: 'createBtn' %>
+            <% end %>
+            <%= link_to "TOPへ戻る", root_url %>
+        </div>
+    </div>
 </div>
