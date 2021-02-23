@@ -3,7 +3,11 @@ class ApplicationController < ActionController::Base
     # include PrefecturesHelper
 
     # before_action :logged_in_user
-    before_action :set_search, :get_prefectures, :set_all_memories, only: :index
+    before_action :set_search, :get_prefectures, 
+                    :set_all_memories, only: :index
+
+    # before_save :check_presence
+    # before_save :check_presence
 
     
     def set_search
@@ -25,17 +29,19 @@ class ApplicationController < ActionController::Base
         @memories = Memory.all
     end
 
-    # def set_check
-    #     # ログイン中のユーザーが作成したCheckが存在するか確認
-    #     # Checkが存在する場合、そのCheckを変数@checkへ代入する
-    #     if !@check.nil?
-    #         @check = Check.find(user_id: current_user.id)
-    #     end
-    # end
+    # ログイン中のユーザーのCheckデータが存在しているか否か
+    def set_user_check
+        @user = User.find_by(id: current_user.id)
+        @user.checks.exists?
+        # @check = Check.find_by(user_id: self.user.id)
+    end
 
-    # def prefecture_name_params
-    #     params.require(:check).permit(prefecture_name: [])
-    # end
+    def check_presence
+        if set_check
+            render 'checks/index', notice: 'You have already had your check.'
+        end
+    end
+
 
     # def current_user
     #     if (user_id = session[:user_id])
