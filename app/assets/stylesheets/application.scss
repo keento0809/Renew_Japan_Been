@@ -20,6 +20,7 @@ body {
     display: flex;
     flex-direction: column;
     background-attachment: fixed;
+    touch-action: pan-x;
   }
 }
 
@@ -108,12 +109,13 @@ body {
   }
 
   .login-btn {
+    align-items: center;
     margin-top: 8px;
-    margin-left: 75px;
-    width: 80%;
-    padding: 8px;
+    margin-left: 55px;
+    width: 60%;
+    padding: 12px;
     border-radius: 8px;
-    background-color: aquamarine;
+    background-color: rgb(127, 246, 255);
     color: white;
     border: none;
   }
@@ -189,9 +191,6 @@ body {
   background-size: cover;
   background-position: center;
   z-index: 990;
-  overflow-y: hidden;
-  
-  
   .bg-layer {
     min-height: 100vh;
     background: rgba(182, 181, 181, 0.7);
@@ -199,7 +198,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    
   }
   
   .new-user-container {
@@ -213,7 +211,6 @@ body {
       h1,a{
         color: #fff;
       }
-
 
       .form-control{
         width: 80%;
@@ -239,18 +236,16 @@ body {
       }
 
       .fa-user{
-        top: 338px;
+        top: 328px;
       }
 
       .fa-envelope{
-        top: 390px;
+        top: 380px;
       }
 
       .fa-lock{
-        top: 442px;
+        top: 432px;
       }
-
-      
 
       .createBtn{
         width: 80%;
@@ -261,7 +256,24 @@ body {
         background-color: rgb(137, 231, 243);
         color: white;
         border: none;
+        cursor: pointer;
       }
+
+      .createBtn:hover{
+        opacity: 0.7;
+      }
+
+      .backToTop{
+        display: inline-block;
+        width: 75%;
+        padding: 4px;
+        margin-top: 8px;
+        border-radius: 8px;
+        border:1px solid #fff;
+        cursor: pointer;
+      }
+
+      
     }
 }
 
@@ -271,24 +283,21 @@ body {
   .signupBody{
     .bg-layer{
       .new-user-container{
-        
-    
         section{
           i{
             left: 80px;
-            touch-action: none;
           }
     
           .fa-user{
-            top: 340px;
+            top: 283px;
           }
 
           .fa-envelope{
-            top: 393px;
+            top: 335px;
           }
 
           .fa-lock{
-            top: 443px;
+            top: 385px;
           }
         }
       }
@@ -296,37 +305,71 @@ body {
   }
 }
 
+
 // PC,ダブレット横向き
 @media screen and(min-width:992px){
-  .new-user-container{
-    overflow: hidden;
-    section{
-      margin-bottom: 8px;
-      i{
-        left: 230px;
+  .signupBody{
+    .bg-layer{
+      .new-user-container{
+        section{
+          margin-bottom: 8px;
+          i{
+            left: 183px;
+          }
+          
+          .fa-user{
+            top: 235px;
+          }
+          
+          .fa-envelope{
+            top: 296px;
+          }
+          
+          .fa-lock{
+            top: 355px;
+          }
+        }
+        
+        .createBtn{
+          width: 50%;
+        }
       }
-
-      .fa-user{
-        top: 80px;
-      }
-
-      .fa-envelope{
-        top: 138px;
-      }
-
-      .fa-lock{
-        top: 195px;
-      }
-    }
-
-
-
-    .createBtn{
-      width: 50%;
     }
   }
 }
 
+//大きなディスプレイ
+@media screen and(min-width:1199px){
+  .signupBody{
+    .bg-layer{
+      .new-user-container{
+        section{
+          margin-bottom: 24px;
+          i{
+            left: 230px;
+          }
+    
+          .fa-user{
+            top: 247px;
+          }
+
+          .fa-envelope{
+            top: 324px;
+          }
+
+          .fa-lock{
+            top: 398px;
+          }
+        }
+
+        .createBtn{
+          padding: 16px;
+          width: 30%;
+        }
+      }
+    }
+  }
+}
 // Header
 header {
   height: 60px;
