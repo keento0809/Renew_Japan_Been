@@ -29,19 +29,6 @@ class ApplicationController < ActionController::Base
         @memories = Memory.all
     end
 
-    # ログイン中のユーザーのCheckデータが存在しているか否か
-    def set_user_check
-        @user = User.find_by(id: current_user.id)
-        @user.checks.exists?
-        # @check = Check.find_by(user_id: self.user.id)
-    end
-
-    def check_presence
-        if set_check
-            render 'checks/index', notice: 'You have already had your check.'
-        end
-    end
-
 
     # def current_user
     #     if (user_id = session[:user_id])

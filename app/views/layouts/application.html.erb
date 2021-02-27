@@ -115,17 +115,7 @@
         <h1 class="header-title">Japan been</h1>
         <!-- <h1 class="header-title"><%= link_to "Japan been", root_url %></h1> -->
         <div class="search">
-            <%# ここに条件式を追加する予定。既にcheckデータが存在すれば、link_to editへ切り替える %>
-            <% if logged_in? %>
-              <% if set_check %>
-                <%= link_to edit_check_path(check_id),method: :get do %>
-                  <i class="fas fa-search fa-2x" id="js-search-icon"></i><span>aa</span>
-                <% end %>
-              <% else %>
-                <p>a</p>
-                <%# <i class="fas fa-search fa-2x" id="js-search-icon"></i> %>
-              <% end %>
-            <% end %>
+            
         </div>
         <!-- ハンバーガーメニュー -->
         <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">

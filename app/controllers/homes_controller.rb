@@ -1,5 +1,6 @@
 class HomesController < ApplicationController
   before_action :logged_in_user, except: :index
+  # include SessionsHelper
   # before_action :set_check, only: :index
   
 
@@ -10,6 +11,9 @@ class HomesController < ApplicationController
     #     @prefectures = Prefecture.all
     #     # @prefectures = "bbb"
     # end
+    if logged_in?
+      @check = Check.find_by(user_id: current_user.id)
+    end
   end
 
   def set_search

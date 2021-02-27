@@ -12,18 +12,15 @@
             <%# if false %>
 
             <% if logged_in? %>
-              <% if set_user_check %>
-                <%= link_to edit_check_path(check_id),method: :get do %>
-                  <i class="fas fa-search fa-2x" id="js-search-icon"></i><span>aa</span>
-                <% end %>
+              <% if @check %>
+                  <span>a</span><i class="fas fa-search fa-2x" id="js-search-icon"></i>
               <% else %>
-                <p>a</p>
-                <%# <i class="fas fa-search fa-2x" id="js-search-icon"></i> %>
+                  <span>b</span><i class="fas fa-search fa-2x" id="js-search-icon"></i>
               <% end %>
             <% end %>
 
             <%# end %>
-            <i class="fas fa-search fa-2x" id="js-search-icon"></i>
+            <%# <i class="fas fa-search fa-2x" id="js-search-icon"></i> %>
         </div>
         <!-- ハンバーガーメニュー -->
         <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
@@ -54,26 +51,6 @@
         <!-- ここまでハンバーガーメニュー -->
     </header>
 
-<%# if false ~ endで全体をコメントアウト(erbファイル)  %>
-<% if false %>
-
-<h3>TOP PAGE</h3>
-
-<p>You`re <strong><%= @current_user.name %></strong>.</p>
-
-<p>View all users <%= link_to "HERE", users_path %>.</p>
-
-<p>View your profile <%= link_to "HERE", user_path(current_user.id) %>.</p>
-
-<!-- 「登録情報の編集」用リンク -->
-<p>Edit your profile <%= link_to "登録情報の編集", edit_user_path(current_user.id) %>.</p>
-
-<p>All Prefectures <%= link_to "HERE", prefectures_path %>.</p>
-
-<!-- ログアウト用リンク -->
-<%= link_to "ログアウト", logout_path, method: :delete %>
-
-<% end %>
 
 <%# <body> %>
   <%# <main> %>
@@ -564,30 +541,6 @@
       <%#= link_to "沖縄", prefecture_path(46) %>
       
      </div> <!-- japan-map -->
-
-
-
-    <!-- コメントアウト -->
-    <% if false %>
-
-     <!-- テスト/検索フォーム -->
-    <%= render 'form' %>
-    <div id="searches">
-        <%= render 'search' %>
-    </div>
-
-    <%= form_with url: prefectures_path, method: :get do |f| %>
-        <%= f.text_field :search %>
-        <%= f.submit 'Search', name: nil %>
-    <% end %>
-    <% @prefectures.each do |prefecture| %>
-        <%= prefecture.name %>
-    <% end %>
-    <!-- コメントアウトここまで -->
-
-    <% end %>
-
-
 
   </main>
   <!-- JS読み込み -->

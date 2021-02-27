@@ -5,6 +5,7 @@ class ChecksController < ApplicationController
 
 def index
   @checks = Check.all
+  @check = Check.find_by(user_id: current_user.id)
 end
 
 def new
