@@ -26,10 +26,11 @@ end
 # test ends here
 
 def edit
-  # @check = Check.find(user_id: user.id)
+  @check = Check.find_by(user_id:current_user.id)
 end
 
 def update
+  @check = Check.find_by(user_id: current_user.id)
   if @check.update(update_prefecture_ids_params)
       flash[:success] = 'Success to update!'
       redirect_to root_url

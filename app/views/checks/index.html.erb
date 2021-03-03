@@ -16,6 +16,7 @@
             <% check.prefectures.find(check.prefecture_ids).each do |che| %>
                 <%= che.name %>
             <% end %>
+            <span><%= link_to "編集", edit_check_path(check.id) %></span>
             <span><%= link_to " 、削除", check_path(check.id), method: :delete %></span>
         </li>
     <% end %>
