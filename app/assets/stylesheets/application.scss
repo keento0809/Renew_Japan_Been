@@ -2,7 +2,7 @@ html,
 body {
   // 本田勝手に修正しました
   overflow: auto;
-  //   overflow: hidden;　#元のコード
+    // overflow: hidden;　#元のコード
   //   ここまで
   height: 100%;
   padding: 0;
@@ -20,6 +20,7 @@ body {
     display: flex;
     flex-direction: column;
     background-attachment: fixed;
+    touch-action: pan-x;
   }
 }
 
@@ -109,12 +110,13 @@ body {
   }
 
   .login-btn {
+    align-items: center;
     margin-top: 8px;
-    margin-left: 75px;
-    width: 80%;
-    padding: 8px;
+    margin-left: 55px;
+    width: 60%;
+    padding: 12px;
     border-radius: 8px;
-    background-color: aquamarine;
+    background-color: rgb(127, 246, 255);
     color: white;
     border: none;
   }
@@ -183,12 +185,200 @@ body {
 }
 
 // SIGNUP
-.new-user-container {
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
+.signupBody{
+  min-height: 100vh;
+  background-image: url("https://drive.google.com/uc?id=1s6ZaAb9aNJByhWHEx5LyULESZtrE8QJW");
+  transition: background-image 2.5s ease;
+  background-size: cover;
+  background-position: center;
+  z-index: 990;
+  .bg-layer {
+    min-height: 100vh;
+    background: rgba(182, 181, 181, 0.7);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .new-user-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 999;
+    background: rgba(114, 113, 113, 0.596);
+    padding: 2em 1em;
+
+      h1,a{
+        color: #fff;
+      }
+
+      .form-control{
+        width: 80%;
+        margin-top: 8px;
+        padding: 12px;
+        padding-left: 30px;
+        border-radius: 8px;
+        border: 2px solid #aaa;
+        outline: none;
+        box-sizing: border-box;
+        position: relative;
+      }
+
+      .form-control:focus {
+        border-color: dodgerblue;
+        box-shadow: 0 0 8px 0 dodgerblue;
+      }
+
+      i{
+        position: absolute;
+        left: 72px;
+        padding: 9px 8px;
+      }
+
+      .fa-user{
+        top: 305px;
+      }
+
+      .fa-envelope{
+        top: 357px;
+      }
+
+      .fa-lock{
+        top: 408px;
+      }
+
+      .createBtn{
+        width: 80%;
+        padding: 8px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+        background-color: rgb(137, 231, 243);
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .createBtn:hover{
+        opacity: 0.7;
+      }
+
+      .backToTop{
+        display: inline-block;
+        width: 75%;
+        padding: 4px;
+        margin-top: 8px;
+        border-radius: 8px;
+        border:1px solid #fff;
+        cursor: pointer;
+      }
+
+      
+    }
 }
 
+
+// iPhoneXR,11,11ProMax,XR
+@media screen and(min-width:414px){
+  .signupBody{
+    .bg-layer{
+      .new-user-container{
+        section{
+          i{
+            left: 80px;
+          }
+    
+          .fa-user{
+            top: 260px;
+          }
+
+          .fa-envelope{
+            top: 312px;
+          }
+
+          .fa-lock{
+            top: 362px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// PC,ダブレット横向き
+@media screen and(min-width:992px){
+  .signupBody{
+    .bg-layer{
+      .new-user-container{
+        section{
+          margin-bottom: 8px;
+          i{
+            left: 183px;
+          }
+          
+          .fa-user{
+            top: 240px;
+          }
+          
+          .fa-envelope{
+            top: 300px;
+          }
+          
+          .fa-lock{
+            top: 359px;
+          }
+        }
+        
+        .createBtn{
+          width: 50%;
+        }
+
+        .backToTop{
+          width: 49%;
+        }
+      }
+    }
+  }
+}
+
+//大きなディスプレイ
+@media screen and(min-width:1199px){
+  .signupBody{
+    .bg-layer{
+      .new-user-container{
+        section{
+          margin-bottom: 24px;
+          i{
+            left: 222px;
+          }
+    
+          .fa-user{
+            top: 201px;
+          }
+
+          .fa-envelope{
+            top: 277px;
+          }
+
+          .fa-lock{
+            top: 352px;
+          }
+        }
+
+        .createBtn{
+          padding: 16px;
+          width: 30%;
+        }
+
+        .backToTop{
+          width: 29%;
+        }
+      }
+    }
+  }
+}
 // Header
 header {
   height: 60px;

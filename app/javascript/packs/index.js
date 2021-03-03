@@ -3,6 +3,19 @@
 
 "use strict";
 {
+
+  // アカウント作成画面のパスワードと確認用の一致をチェック
+    const createBtn = document.getElementById('js-create');
+    createBtn.addEventListener('click',function(e){
+      let password = document.getElementById('js-password');
+      let confirmPassword = document.getElementById('js-confirmPassword');
+      if(password.value !== confirmPassword.value){
+        e.preventDefault();
+        alert('パスワードと確認用パスワードが一致しません。')
+      }
+
+    });
+
   // 表示する画像を配列で持つ
   // Google Driveの画像を外部で使うにはそのままのリンクは使えず編集しないといけない
   let setImages = [
