@@ -9,6 +9,12 @@ class ApplicationController < ActionController::Base
     # before_save :check_presence
     # before_save :check_presence
 
+    def already_logged_in?
+        if logged_in?
+            flash[:alert] = "You've already logged in"
+            redirect_to root_url
+        end
+    end
     
     def set_search
         @search = Prefecture.ransack(params[:q])
