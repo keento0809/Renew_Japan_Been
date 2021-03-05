@@ -13,9 +13,11 @@
 
             <% if logged_in? %>
               <% if @check %>
-                  <i class="fas fa-search fa-2x" id="js-search-icon"></i>
+                <%= link_to edit_check_path(@check.id), method: :get do %>
+                  <span>a</span><i class="fas fa-search fa-2x" id="js-search-icon"></i>
+                <% end %>
               <% else %>
-                  <i class="fas fa-search fa-2x" id="js-search-icon"></i>
+                <span>b</span><i class="fas fa-search fa-2x" id="js-search-icon"></i>
               <% end %>
             <% end %>
 

@@ -1,6 +1,9 @@
 <%# <div id="js-search-modal" class="serach-modal hidden"> %>
     <section class="search-header">
-      <i class="fas fa-times fa-2x" id="js-cross"></i>
+      <%# ✖️を押すとトップページに戻る %>
+      <%= link_to root_url, method: :get do %>
+        <i class="fas fa-times fa-2x" id="js-cross"></i>
+      <% end %>
       <h2>Select Prefecture</h2>
       <%# Formの外からCheckのPostを実行する %>
       <button type="submit" form="testBtn">
