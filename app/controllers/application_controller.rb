@@ -1,13 +1,10 @@
 class ApplicationController < ActionController::Base
     include SessionsHelper
-    # include PrefecturesHelper
-
+    
     # before_action :logged_in_user
     before_action :set_search, :get_prefectures, 
                     :set_all_memories, only: :index
 
-    # before_save :check_presence
-    # before_save :check_presence
 
     def already_logged_in?
         if logged_in?

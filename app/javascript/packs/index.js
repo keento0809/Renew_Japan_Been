@@ -4,6 +4,8 @@
 "use strict";
 {
   // アカウント作成画面のパスワードと確認用の一致をチェック
+  // → 一部のjsのクリックイベントが何故か発火しないので、一旦コメントアウトしてます。
+
   // const createBtn = document.getElementById("js-create");
   // createBtn.addEventListener("click", function (e) {
   //   let password = document.getElementById("js-password");
