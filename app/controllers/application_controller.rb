@@ -1,10 +1,17 @@
 class ApplicationController < ActionController::Base
     include SessionsHelper
-    # include PrefecturesHelper
-
+    
     # before_action :logged_in_user
-    before_action :set_search, :get_prefectures, :set_all_memories, only: :index
+    before_action :set_search, :get_prefectures, 
+                    :set_all_memories, only: :index
 
+
+    def already_logged_in?
+        if logged_in?
+            flash[:alert] = "You've already logged in"
+            redirect_to root_url
+        end
+    end
     
     def set_search
         @search = Prefecture.ransack(params[:q])
@@ -25,17 +32,6 @@ class ApplicationController < ActionController::Base
         @memories = Memory.all
     end
 
-    # def set_check
-    #     # ログイン中のユーザーが作成したCheckが存在するか確認
-    #     # Checkが存在する場合、そのCheckを変数@checkへ代入する
-    #     if !@check.nil?
-    #         @check = Check.find(user_id: current_user.id)
-    #     end
-    # end
-
-    # def prefecture_name_params
-    #     params.require(:check).permit(prefecture_name: [])
-    # end
 
     # def current_user
     #     if (user_id = session[:user_id])
