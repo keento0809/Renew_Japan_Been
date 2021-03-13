@@ -8,8 +8,13 @@ class User < ApplicationRecord
 
     has_secure_password
 
-    # Userは行ったことのある都道府県データのCheckを所有する
+    # Checkとの関連付け、修正前：Userは行ったことのある都道府県データのCheckを所有する
+    # has_many :checks, dependent: :destroy
+
+    # Checkとの関連付け、修正後：UserはひとつのCheckを保有する(一時コメントアウト中)
+    # has_one :check
     has_many :checks, dependent: :destroy
+    
 
     # User, Memory, Prefectureにてhas_many throughの関連付けを行う
     has_many :memories

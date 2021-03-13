@@ -5,7 +5,10 @@ class UsersController < ApplicationController
     before_action :logged_in_user, only: [:index, :edit, :update, :destory]
     # correct_user：正しいユーザーか確認
     before_action :correct_user, only: [:edit, :update]
-    # before_action :admin_user, only: :destroy
+    # ログイン済みの場合、サインアップ画面にアクセスできないようにする
+    before_action :already_logged_in?, only: [:new]
+    # 他ユーザーのマイページにアクセスできないようにする
+    before_action :ensure_correct_user, only: [:show, :edit, :update, :destroy]
 
 
   def index
@@ -14,6 +17,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # @userと定義しないとエラーとなる。原因不明
+    @memories = @user.memories.order('updated_at DESC')
+    # @memories = Memories.where(user_id: current_user.id)
   end
 
   def new
@@ -59,6 +65,14 @@ class UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:name, :email, :password)
         # params.permit(:name, :email, :password_digest)
+    end
+
+    # ログイン中のユーザーと一致しているか確認
+    def ensure_correct_user
+      if current_user.id != params[:id].to_i
+        flash[:alert] = "You cannot access this page."
+        redirect_to root_url
+      end
     end
 
     # 正しいユーザーかどうか確認

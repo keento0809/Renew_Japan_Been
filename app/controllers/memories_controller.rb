@@ -49,7 +49,9 @@ class MemoriesController < ApplicationController
   end
 
   def destroy
-
+    @memory = Memory.find(params[:id])
+    @memory.destroy
+    redirect_to root_url, notice: 'Memory deleted.'
   end
 
 

@@ -23,11 +23,14 @@
         <li>
             <%= link_to "編集", edit_memory_path(memory.id) %>
         </li>
+        <li>
+            <%= link_to "削除", memory_path(memory.id), method: :delete %>
+        </li>
     </ul>
 <% end %>
 
 <% if @memories.present? %>
-    <p>この文章はテスト表示です。</p>
+    <p>この文章はテスト表示です。ですです。</p>
 <% end %>
 
 <%#= @memories.find_by(prefecture_name: "北海道").comment %>

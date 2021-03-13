@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-
+  # ログイン済みの場合、URLから再度ログインページにアクセスできないようにする
+  before_action :already_logged_in?, only: [:new]
 
   def new
 

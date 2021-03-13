@@ -42,6 +42,8 @@ Rails.application.routes.draw do
 #   only: [:edit, :update, :show, :destory]
 resources :account_activations, only: [:edit]
 
+patch 'checks/:id', to: 'checks#update'
+
 resources :checks
 
 resources :memories
