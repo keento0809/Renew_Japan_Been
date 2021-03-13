@@ -183,6 +183,26 @@ body {
   }
 }
 
+// 大きなディスプレイ
+@media screen and(min-width:1199px){
+  .login-body {
+    .login-main {
+      .u-form {
+        i {
+          left: 315px;
+        }
+        .fa-user{
+          top: 306px;
+        }
+
+        .fa-lock{
+          top: 358px;
+        }
+      }
+  }
+}
+}
+
 // SIGNUP
 .signupBody{
   min-height: 100vh;
