@@ -1,10 +1,8 @@
 <% if false %>
-個別にJSを読み込む。読み込ませたいlogin.jsのパスはapp/javascript/packsなので
-javascript_pack_tag 'login'はapp/javascript/packs/login.jsを読み込むという意味
-<% end %>
 <head>
-<%= javascript_pack_tag "login" %>
+<%= javascript_include_tag "index.js" %>
 </head>
+<% end %>
 
 <div class="login-body" id='slideshow'>
 <div class="bg-layer">
@@ -47,3 +45,4 @@ javascript_pack_tag 'login'はapp/javascript/packs/login.jsを読み込むとい
 
 </div>
 
+<%= javascript_pack_tag "login" %>
