@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root 'homes#index' 
+
   
   get '/login', to: 'sessions#new'
   get '/signup', to: 'users#new'
-  
 
   
 #   get 'memories/new'

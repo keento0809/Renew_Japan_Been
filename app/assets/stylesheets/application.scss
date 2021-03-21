@@ -31,7 +31,10 @@ body {
 // Login
 .login-body {
   min-height: 100vh;
-  // background-image: url("https://drive.google.com/uc?id=1s6ZaAb9aNJByhWHEx5LyULESZtrE8QJW");
+  // railsでの画像の保存先はassetsかpublic
+  // asset:「システム側に依存する画像関係」の場合に使用。ここに保存された画像はアセットパイプラインの対象となる→ページリクエストを減らすことができページ速度の向上につながる
+  // public: 「ユーザがアップロードするよいな画像関係」の場合に使用
+  background-image: url("/assets/shirahama.JPG");
   transition: background-image 2.5s ease;
   background-size: cover;
   background-position: center;
@@ -397,6 +400,44 @@ body {
     }
   }
 }
+
+//Macbook air
+@media screen and(min-width:1440px) {
+  .signupBody {
+    .bg-layer {
+      .new-user-container {
+        section {
+          margin-bottom: 24px;
+          i {
+            left: 282px;
+          }
+
+          .fa-user {
+            top: 300px;
+          }
+
+          .fa-envelope {
+            top: 277px;
+          }
+
+          .fa-lock {
+            top: 352px;
+          }
+        }
+
+        .createBtn {
+          padding: 16px;
+          width: 30%;
+        }
+
+        .backToTop {
+          // width: 29%;
+        }
+      }
+    }
+  }
+}
+
 // Header
 header {
   height: 60px;
