@@ -1,3 +1,4 @@
+<body>
 <%# <div id="js-search-modal" class="serach-modal hidden"> %>
     <section class="search-header">
       <%# ✖️を押すとトップページに戻る %>
@@ -16,7 +17,7 @@
 
     <form action="" class="search-form">
       <!-- <i class="fas fa-search-plus"></i> -->
-      <input type="text" name="" id="search-input">
+      <input type="text" name="" id="search-input2">
       <span>Cancel</span>
     </form>
 
@@ -28,6 +29,7 @@
           <%= form_with(model: @check, local: true, id: 'testBtn') do |form| %>
             <%= form.hidden_field :user_id, :value => current_user.id %>
 
+              <%# for="check_prefecture_ids_1"  %>
               <ul id="js-pref-list">
                 <li id="jsPref0" class="searchPref"><%= form.check_box :prefecture_ids, { multiple: true }, 1, nil %>北海道</li>
                 <li id="jsPref1" class="searchPref"><%= form.check_box :prefecture_ids, { multiple: true }, 2, nil %>青森</li>
@@ -85,9 +87,10 @@
 
           <% end %>
 
-
         <!-- <li><i class="fas fa-check-circle"></i></li> -->
       </ul>
     </article>
+    <%= javascript_pack_tag 'try' %>
     <%= link_to "TOP", root_url %>
 <%# </div> %>
+</body>

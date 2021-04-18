@@ -714,7 +714,9 @@ nav > li {
   z-index: 1;
 }
 
-#js-pref-list > li {
+// 本田追記　21.04.11
+#js-pref-list > li,
+#js-pref-list > label {
   list-style: none;
   height: 40px;
   font-size: 20px;
