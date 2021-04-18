@@ -45,8 +45,8 @@
             <%= form.hidden_field :user_id, :value => current_user.id %>
 
               <ul id="js-pref-list">
-                <li id="jsPref0" class="searchPref"><%= form.check_box :prefecture_ids, { multiple: true }, 1, nil %>北海道</li>
-                <li id="jsPref1" class="searchPref"><%= form.check_box :prefecture_ids, { multiple: true }, 2, nil %>青森</li>
+                <li id="jsPref0" class="searchPref"><%= form.check_box :prefecture_ids, { multiple: true }, 1, nil %></li>
+                <li id="jsPref1" class="searchPref"><%= form.check_box :prefecture_ids, { multiple: true }, 2, nil %></li>
                 <li id="jsPref2" class="searchPref"><%= form.check_box :prefecture_ids, { multiple: true }, 3, nil %>秋田</li>
                 <li id="jsPref3" class="searchPref"><%= form.check_box :prefecture_ids, { multiple: true }, 4, nil %>岩手</li>
                 <li id="jsPref4" class="searchPref"><%= form.check_box :prefecture_ids, { multiple: true }, 5, nil %>山形</li>
@@ -153,13 +153,13 @@
         <%# <div class="main-container"> %>
 
         <!-- アラートメッセージのコメントアウト解除中 -->
-        <%# if false %>
+        <% if false %>
 
             <% flash.each do |message_type, message| %>
                 <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
             <% end %>
 
-        <%# end %>
+        <% end %>
             <%= yield %>
         <%# </div> %>
     </main>
