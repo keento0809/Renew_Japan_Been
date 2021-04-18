@@ -16,7 +16,7 @@
 
     <form action="" class="search-form">
       <!-- <i class="fas fa-search-plus"></i> -->
-      <input type="text" name="" id="search-input">
+      <input type="text" name="" id="searchInput">
       <span>Cancel</span>
     </form>
 
@@ -26,10 +26,10 @@
       <ul id="js-pref-list"> 
         <!-- ここに県を追加していく -->
           <%= form_with(model: @check, local: true, id: 'testBtn') do |form| %>
+            
             <%= form.hidden_field :user_id, :value => current_user.id %>
-
               <ul id="js-pref-list">
-                <li id="jsPref0" class="searchPref"><%= form.check_box :prefecture_ids, { multiple: true }, 1, nil %>北海道</li>
+                <li id="jsPref0" class="searchPref"><%= form.check_box :prefecture_ids, { multiple: true }, 1, nil %><span class ='circle'></span>北海道</li>
                 <li id="jsPref1" class="searchPref"><%= form.check_box :prefecture_ids, { multiple: true }, 2, nil %>青森</li>
                 <li id="jsPref2" class="searchPref"><%= form.check_box :prefecture_ids, { multiple: true }, 3, nil %>秋田</li>
                 <li id="jsPref3" class="searchPref"><%= form.check_box :prefecture_ids, { multiple: true }, 4, nil %>岩手</li>
@@ -91,3 +91,5 @@
     </article>
     <%= link_to "TOP", root_url %>
 <%# </div> %>
+
+<%= javascript_pack_tag 'prefecture' %>

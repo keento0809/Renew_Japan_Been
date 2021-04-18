@@ -300,7 +300,6 @@
   searchInput.addEventListener("input", function () {
     let filter = searchInput.value.toUpperCase(); //入力された文字を取得
     let $lists = document.getElementsByClassName("searchPref"); //モーダル内の各県（li）を取得
-    // console.log(filter);
     for (let i = 0; i < $lists.length; i++) {
       //$lists.length は47
       let li = $lists[i].innerHTML; //i番目の県を取得
