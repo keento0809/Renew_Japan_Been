@@ -446,15 +446,15 @@ header {
   display: inline-block;
   align-items: center;
   width: 100%;
+
+  .header-title {
+    margin: 0 auto;
+    line-height: 60px;
+  }
 }
 
 #js-header.disable {
   display: none;
-}
-
-.header-title {
-  margin: 0 auto;
-  line-height: 60px;
 }
 
 #js-search-icon {
@@ -536,8 +536,13 @@ input[type="checkbox"]:checked ~ #sidebarMenu {
 input[type="checkbox"] {
   transition: all 0.3s;
   box-sizing: border-box;
+  // display: none;
+}
+
+.openSidebarMenu {
   display: none;
 }
+
 .sidebarIconToggle {
   transition: all 0.3s;
   box-sizing: border-box;
@@ -617,17 +622,18 @@ nav > li {
 /* ボタン */
 #open,
 .close {
-  cursor: pointer;
-  width: 200px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  text-align: center;
-  padding: 12px;
-  margin: 16px auto 0;
+  // cursor: pointer;
+  // width: 200px;
+  // border: 1px solid #ccc;
+  // border-radius: 4px;
+  // text-align: center;
+  // padding: 10px;
+  // margin: 16px auto 0;
+  // margin-bottom: 16px;
 }
 
 .close:hover {
-  background-color: rgb(135, 229, 241);
+  // background-color: rgb(135, 229, 241);
 }
 
 .mask {
@@ -649,6 +655,21 @@ nav > li {
   right: 0;
   margin: 0 auto;
   z-index: 3;
+
+  .close {
+    cursor: pointer;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    padding: 10px;
+    margin: 16px auto 0;
+    margin-bottom: 16px;
+  }
+
+  .close:hover {
+    background-color: rgb(135, 229, 241);
+  }
 }
 
 .mask.hidden {
@@ -704,29 +725,105 @@ nav > li {
 .search-form {
   display: flex;
   margin-top: 10px;
+  padding: 4px;
+  justify-content: center;
+
+  #searchInput {
+    position: relative;
+    border: 1px solid black;
+    height: 30px;
+    border-radius: 8px;
+    width: 90%;
+    z-index: 1;
+  }
+
+  #search-input {
+    position: relative;
+    border: 1px solid black;
+    height: 30px;
+    border-radius: 8px;
+    width: 90%;
+    z-index: 1;
+  }
+
+  span {
+    display: none;
+  }
 }
 
-#search-input {
-  position: relative;
-  border: 1px solid black;
-  height: 30px;
-  width: 90%;
-  z-index: 1;
-}
+#js-pref-list {
+  li {
+    list-style: none;
+    height: 40px;
+    font-size: 20px;
+    line-height: 40px;
+    color: rgb(163, 159, 163);
+    cursor: pointer;
+    position: relative;
+  }
 
-// 本田追記　21.04.11
-#js-pref-list > li,
-#js-pref-list > label {
-  list-style: none;
-  height: 40px;
-  font-size: 20px;
-  line-height: 40px;
-  color: rgb(163, 159, 163);
-  cursor: pointer;
-}
+  label {
+    // color: turquoise;
+    .selected {
+      color: turquoise;
+    }
+  }
 
-#js-pref-list > .selected {
-  color: turquoise;
+  .searchPref {
+    input {
+      // height: 0;
+      // width: 0;
+      // border-radius: 50%;
+    }
+
+    input[type="checkbox" i]:focus {
+      // background-color: red;
+    }
+
+    // rounded checkbox
+    // .circle{
+    //   height: 25px;
+    //   width: 25px;
+    //   border-radius: 50%;
+    //   border: 1px solid #ccc;
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   background-color: #fff;
+    // }
+
+    // .circle:after{
+    //   border: 2px solid #fff;
+    //   border-top: none;
+    //   border-right: none;
+    //   content: "";
+    //   height: 6px;
+    //   left: 7px;
+    //   opacity: 0;
+    //   position: absolute;
+    //   top: 8px;
+    //   transform: rotate(-45deg);
+    //   width: 12px;
+    // }
+
+    // input[type="checkbox"]{
+    //   visibility: hidden;
+    // }
+
+    // input[type="checkbox"]+ span{
+    //     background-color: #66bb6a;
+    //     border-color: #66bb6a;
+
+    // }
+
+    // input[type="checkbox"]+ span:after{
+    //   opacity: 1;
+    // }
+  }
+
+  .selected {
+    color: turquoise;
+  }
 }
 
 .search-form > .fa-search-plus {
@@ -734,10 +831,6 @@ nav > li {
   top: 145px;
   left: 5px;
   z-index: 2;
-}
-
-.search-form > span {
-  display: none;
 }
 
 #js-search-modal.hidden {
