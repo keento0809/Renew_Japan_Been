@@ -13,6 +13,9 @@ class HomesController < ApplicationController
     # end
     if logged_in?
       @check = Check.find_by(user_id: current_user.id)
+      @label = Label.where(check_id: current_user.id)
+      gon.check = @check
+      gon.label = @label
     end
   end
 
