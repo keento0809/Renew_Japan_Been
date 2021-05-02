@@ -7,13 +7,13 @@
       let searchPref = document.querySelectorAll(".searchPref");
     //   console.log(searchPref);
       let checkPref = document.querySelectorAll("input[type='checkbox']");
-      console.log(checkPref);
+    //   console.log(checkPref);
     //   以下クリックイベント
+    // クリックされた県名の色を変える
       for (let i = 0; i < searchPref.length; i++) {
         searchPref[i].addEventListener(
           "click",
           function () {
-            //   console.log(this);
             this.classList.toggle("selected");
             if(checkPref[i].checked==false){
                 checkPref[i].checked=true;
@@ -23,7 +23,7 @@
           },
           false
         );
-
+    //   チェックの付け外し
         checkPref[i].addEventListener("click",function(){
             if(this.checked==false){
                 this.checked=true;
@@ -35,18 +35,7 @@
       
     }
     );
-    
-    // 全都道府県のチェックボックスを取得(toggleが効かない、、、Cannot read property 'toggle' of undefined)
-    // let checkPref = document.querySelectorAll("input[type='checkbox']");
-    // for (let k = 0; k<checkPref.length; k++){
-    //     checkPref[k].addEventListener('change',(e)=>{
-    //         this.classList.toggle("selected");
-    //     });
-    // };
 
-    // console.log(checkPref);
-
-    
 
   // モーダル内のリアルタイム絞り込み機能
 //   各要素が取得できているかの確認
