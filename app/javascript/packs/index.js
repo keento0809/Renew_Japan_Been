@@ -290,6 +290,8 @@
     false
   );
 
+  
+
   // モーダル内のリアルタイム絞り込み機能
   // let $lists = document.getElementsByClassName('searchPref');
   // console.log($lists);
@@ -349,7 +351,17 @@
       console.log(e.message);
     }
   });
+
 }
+
+(()=>{
+  if(typeof gon != 'undefined'){
+  console.log(`You've been to,${gon.label[1].prefecture_id}`)
+}else{
+  console.log('やばい');
+}
+})();
+
 
 // 複数モーダル
 // let area = document.querySelectorAll('.area');

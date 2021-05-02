@@ -8,6 +8,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= include_gon %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'homes', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%# Rails6の場合はjavascript_include_tagではなくjavascript_pack_tagを用いる %>

@@ -71,3 +71,5 @@ gem 'mini_magick'
 
 gem 'hirb'
 gem 'hirb-unicode'
+
+gem 'gon'
