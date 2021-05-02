@@ -401,3 +401,14 @@
 //       return false;
 //     },false)
 //   }
+
+window.alert(`hello, ${gon.label[0].prefecture_id}`);
+console.log(`行ったことのある都道府県は、${gon.label.length}つです。`);
+
+// 行ったことのある都道府県id(prefecture_id)一覧を取得
+function testGon() {
+  for (let i = 0; i < `${gon.label.length}`; i++) {
+    console.log(`${gon.label[i].prefecture_id}`);
+  }
+}
+testGon();

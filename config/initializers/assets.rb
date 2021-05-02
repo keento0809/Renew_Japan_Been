@@ -9,6 +9,7 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 # viewごとに個別のJavaScriptを読み込ませるために手動でコンパイルを行う
+
 # Rails.application.config.javascript.precompile += %w( packs/login.js )
 # Rails.application.config.javascript.precompile += %w( packs/create.js )
 

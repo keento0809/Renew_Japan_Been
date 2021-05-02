@@ -2,7 +2,7 @@ html,
 body {
   // 本田勝手に修正しました
   overflow: auto;
-    // overflow: hidden;　#元のコード
+  // overflow: hidden;　#元のコード
   //   ここまで
   height: 100%;
   padding: 0;
@@ -34,7 +34,7 @@ body {
   // railsでの画像の保存先はassetsかpublic
   // asset:「システム側に依存する画像関係」の場合に使用。ここに保存された画像はアセットパイプラインの対象となる→ページリクエストを減らすことができページ速度の向上につながる
   // public: 「ユーザがアップロードするよいな画像関係」の場合に使用
-  background-image: url('/assets/shirahama.JPG');
+  background-image: url("/assets/shirahama.JPG");
   transition: background-image 2.5s ease;
   background-size: cover;
   background-position: center;
@@ -45,6 +45,7 @@ body {
   }
 
   .bg-layer {
+    background-image: image-url("Osak_Dimg.jpg");
     min-height: 100vh;
     background: rgba(0, 0, 0, 0.7);
     margin: 0;
@@ -188,27 +189,27 @@ body {
 }
 
 // 大きなディスプレイ
-@media screen and(min-width:1199px){
+@media screen and(min-width:1199px) {
   .login-body {
     .login-main {
       .u-form {
         i {
           left: 315px;
         }
-        .fa-user{
+        .fa-user {
           top: 306px;
         }
 
-        .fa-lock{
+        .fa-lock {
           top: 358px;
         }
       }
+    }
   }
-}
 }
 
 // SIGNUP
-.signupBody{
+.signupBody {
   min-height: 100vh;
   background-image: url("https://drive.google.com/uc?id=1s6ZaAb9aNJByhWHEx5LyULESZtrE8QJW");
   transition: background-image 2.5s ease;
@@ -223,7 +224,7 @@ body {
     justify-content: center;
     align-items: center;
   }
-  
+
   .new-user-container {
     width: 80%;
     margin: 0 auto;
@@ -232,95 +233,93 @@ body {
     background: rgba(114, 113, 113, 0.596);
     padding: 2em 1em;
 
-      h1,a{
-        color: #fff;
-      }
-
-      .form-control{
-        width: 80%;
-        margin-top: 8px;
-        padding: 12px;
-        padding-left: 30px;
-        border-radius: 8px;
-        border: 2px solid #aaa;
-        outline: none;
-        box-sizing: border-box;
-        position: relative;
-      }
-
-      .form-control:focus {
-        border-color: dodgerblue;
-        box-shadow: 0 0 8px 0 dodgerblue;
-      }
-
-      i{
-        position: absolute;
-        left: 72px;
-        padding: 9px 8px;
-      }
-
-      .fa-user{
-        top: 305px;
-      }
-
-      .fa-envelope{
-        top: 357px;
-      }
-
-      .fa-lock{
-        top: 408px;
-      }
-
-      .createBtn{
-        width: 80%;
-        padding: 8px;
-        margin-top: 8px;
-        margin-bottom: 8px;
-        border-radius: 8px;
-        background-color: rgb(137, 231, 243);
-        color: white;
-        border: none;
-        cursor: pointer;
-      }
-
-      .createBtn:hover{
-        opacity: 0.7;
-      }
-
-      .backToTop{
-        display: inline-block;
-        width: 75%;
-        padding: 4px;
-        margin-top: 8px;
-        border-radius: 8px;
-        border:1px solid #fff;
-        cursor: pointer;
-      }
-
-      
+    h1,
+    a {
+      color: #fff;
     }
+
+    .form-control {
+      width: 80%;
+      margin-top: 8px;
+      padding: 12px;
+      padding-left: 30px;
+      border-radius: 8px;
+      border: 2px solid #aaa;
+      outline: none;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .form-control:focus {
+      border-color: dodgerblue;
+      box-shadow: 0 0 8px 0 dodgerblue;
+    }
+
+    i {
+      position: absolute;
+      left: 72px;
+      padding: 9px 8px;
+    }
+
+    .fa-user {
+      top: 305px;
+    }
+
+    .fa-envelope {
+      top: 357px;
+    }
+
+    .fa-lock {
+      top: 408px;
+    }
+
+    .createBtn {
+      width: 80%;
+      padding: 8px;
+      margin-top: 8px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+      background-color: rgb(137, 231, 243);
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .createBtn:hover {
+      opacity: 0.7;
+    }
+
+    .backToTop {
+      display: inline-block;
+      width: 75%;
+      padding: 4px;
+      margin-top: 8px;
+      border-radius: 8px;
+      border: 1px solid #fff;
+      cursor: pointer;
+    }
+  }
 }
 
-
 // iPhoneXR,11,11ProMax,XR
-@media screen and(min-width:414px){
-  .signupBody{
-    .bg-layer{
-      .new-user-container{
-        section{
-          i{
+@media screen and(min-width:414px) {
+  .signupBody {
+    .bg-layer {
+      .new-user-container {
+        section {
+          i {
             left: 80px;
           }
-    
-          .fa-user{
+
+          .fa-user {
             top: 260px;
           }
 
-          .fa-envelope{
+          .fa-envelope {
             top: 312px;
           }
 
-          .fa-lock{
+          .fa-lock {
             top: 362px;
           }
         }
@@ -329,36 +328,35 @@ body {
   }
 }
 
-
 // PC,ダブレット横向き
-@media screen and(min-width:992px){
-  .signupBody{
-    .bg-layer{
-      .new-user-container{
-        section{
+@media screen and(min-width:992px) {
+  .signupBody {
+    .bg-layer {
+      .new-user-container {
+        section {
           margin-bottom: 8px;
-          i{
+          i {
             left: 183px;
           }
-          
-          .fa-user{
+
+          .fa-user {
             top: 240px;
           }
-          
-          .fa-envelope{
+
+          .fa-envelope {
             top: 300px;
           }
-          
-          .fa-lock{
+
+          .fa-lock {
             top: 359px;
           }
         }
-        
-        .createBtn{
+
+        .createBtn {
           width: 50%;
         }
 
-        .backToTop{
+        .backToTop {
           width: 49%;
         }
       }
@@ -367,35 +365,35 @@ body {
 }
 
 //大きなディスプレイ
-@media screen and(min-width:1199px){
-  .signupBody{
-    .bg-layer{
-      .new-user-container{
-        section{
+@media screen and(min-width:1199px) {
+  .signupBody {
+    .bg-layer {
+      .new-user-container {
+        section {
           margin-bottom: 24px;
-          i{
+          i {
             left: 222px;
           }
-    
-          .fa-user{
+
+          .fa-user {
             top: 201px;
           }
 
-          .fa-envelope{
+          .fa-envelope {
             top: 277px;
           }
 
-          .fa-lock{
+          .fa-lock {
             top: 352px;
           }
         }
 
-        .createBtn{
+        .createBtn {
           padding: 16px;
           width: 30%;
         }
 
-        .backToTop{
+        .backToTop {
           width: 29%;
         }
       }
@@ -404,35 +402,35 @@ body {
 }
 
 //Macbook air
-@media screen and(min-width:1440px){
-  .signupBody{
-    .bg-layer{
-      .new-user-container{
-        section{
+@media screen and(min-width:1440px) {
+  .signupBody {
+    .bg-layer {
+      .new-user-container {
+        section {
           margin-bottom: 24px;
-          i{
+          i {
             left: 282px;
           }
-    
-          .fa-user{
+
+          .fa-user {
             top: 300px;
           }
 
-          .fa-envelope{
+          .fa-envelope {
             top: 277px;
           }
 
-          .fa-lock{
+          .fa-lock {
             top: 352px;
           }
         }
 
-        .createBtn{
+        .createBtn {
           padding: 16px;
           width: 30%;
         }
 
-        .backToTop{
+        .backToTop {
           // width: 29%;
         }
       }
@@ -449,7 +447,7 @@ header {
   align-items: center;
   width: 100%;
 
-  .header-title{
+  .header-title {
     margin: 0 auto;
     line-height: 60px;
   }
@@ -541,7 +539,7 @@ input[type="checkbox"] {
   // display: none;
 }
 
-.openSidebarMenu{
+.openSidebarMenu {
   display: none;
 }
 
@@ -658,22 +656,20 @@ nav > li {
   margin: 0 auto;
   z-index: 3;
 
-  .close{
+  .close {
     cursor: pointer;
-  width: 200px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  text-align: center;
-  padding: 10px;
-  margin: 16px auto 0;
-  margin-bottom: 16px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+    padding: 10px;
+    margin: 16px auto 0;
+    margin-bottom: 16px;
   }
 
-  .close:hover{
+  .close:hover {
     background-color: rgb(135, 229, 241);
   }
-
-
 }
 
 .mask.hidden {
@@ -732,7 +728,7 @@ nav > li {
   padding: 4px;
   justify-content: center;
 
-  #searchInput{
+  #searchInput {
     position: relative;
     border: 1px solid black;
     height: 30px;
@@ -750,10 +746,9 @@ nav > li {
     z-index: 1;
   }
 
-  span{
+  span {
     display: none;
   }
-
 }
 
 #js-pref-list {
@@ -765,25 +760,25 @@ nav > li {
     color: rgb(163, 159, 163);
     cursor: pointer;
     position: relative;
-    }
+  }
 
-    label{
-      // color: turquoise;
-      .selected{
-        color: turquoise;
-      }
+  label {
+    // color: turquoise;
+    .selected {
+      color: turquoise;
     }
+  }
 
-    .searchPref {
-      input{
+  .searchPref {
+    input {
       // height: 0;
       // width: 0;
       // border-radius: 50%;
     }
 
-      input[type="checkbox" i]:focus{
-        // background-color: red;
-      }
+    input[type="checkbox" i]:focus {
+      // background-color: red;
+    }
 
     // rounded checkbox
     // .circle{
@@ -818,21 +813,18 @@ nav > li {
     // input[type="checkbox"]+ span{
     //     background-color: #66bb6a;
     //     border-color: #66bb6a;
-      
+
     // }
 
     // input[type="checkbox"]+ span:after{
     //   opacity: 1;
     // }
-
-    }
-
-    
-    .selected {
-      color: turquoise;
-    }
   }
 
+  .selected {
+    color: turquoise;
+  }
+}
 
 .search-form > .fa-search-plus {
   position: absolute;
