@@ -8,6 +8,10 @@ require("@rails/ujs").start()
 // require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+// グラフ管理用のJSライブラリ読み込み
+// importではなくrequire
+require("chartkick/chart.js")
+
 // require('my-require')
 
 // Uncomment to copy all static images under ../images to the output folder and reference
