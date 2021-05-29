@@ -9,12 +9,13 @@
         <%#= image_tag("") %>
     <%# end %>
     <p>ここにユーザー画像を追加するのも有り？</p>
-</div>
-<p>Email：<%= @user.email %></p>
-
-<div class="your-memories">
+    </div>
+    <p>Email：<%= @user.email %></p>
+    
+    <div class="your-memories">
     <h2>All Your Memories</h2>
     <p>- - - - - - - - - - - - - - - - - - </p>
+    <%= pie_chart @chart ,id: "users-pieChart",width:"200px",height:"200px"%> 
     <% @memories.each do |memory| %>
         
         <p>

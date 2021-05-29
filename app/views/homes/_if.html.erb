@@ -1,5 +1,6 @@
 <head>
     <%= stylesheet_link_tag 'homes', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= include_gon %>
 </head>
 
 <header>
@@ -51,7 +52,30 @@
             </div> <!-- slidemenu -->
         </div> <!-- header -->
         <!-- ここまでハンバーガーメニュー -->
-    </header>
+</header>
+
+<% if false %>
+<div class="countArea">
+<p>Youve been to</p>
+<section>
+<div>
+<div class ="diagonalLine"></div>
+<div>47</div>
+</section>
+</div>
+
+円グラフ
+<div>
+<canvas id="myChart"></canvas>
+</div>
+<h2> You have been to </h2>
+<% end %>
+
+
+<% if false %>
+Prefecture.group(:name).count
+<%= pie_chart @check %> 
+<% end %>
 
 
 <%# <body> %>

@@ -20,6 +20,25 @@ class UsersController < ApplicationController
     # @userと定義しないとエラーとなる。原因不明
     @memories = @user.memories.order('updated_at DESC')
     # @memories = Memories.where(user_id: current_user.id)
+      @chart =[['a',10],['b',90]]
+      
+      if logged_in?
+        @check = Check.find_by(user_id: current_user.id)
+        # @label = Label.where(check_id: current_user.id)
+        # @label修正後
+        @label = @check.labels.where(params[:check_id])
+
+      end
+      
+      def prefecture_ids_params
+        # create時、.requireを入れるとどうしてもエラーになってしまう
+          params.permit(:user_id, prefecture_ids: [])
+      end
+    
+      def update_prefecture_ids_params
+          # やはりupdate時は.requireを付けないと内容が更新されない
+          params.require(:check).permit(:user_id, prefecture_ids: [])
+      end
   end
 
   def new

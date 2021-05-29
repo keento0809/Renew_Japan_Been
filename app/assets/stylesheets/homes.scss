@@ -516,6 +516,46 @@ body {
   /****************************************
       レスポンシブ
   ****************************************/
+   @media screen and (min-width: 600px){
+       
+       main{
+        //    height: 70%;
+            background-attachment:local;
+           
+           .header{
+               margin-bottom: 24px;
+            }
+
+            
+        }
+        
+        #japan-map{
+            margin-top: 24px;
+        }
+       
+
+   }
+   @media screen and (min-width: 1280px){
+       
+       main{
+        //    height: 70%;
+            background-attachment:local;
+           
+           header{
+               margin-bottom: 24px;
+               width: 200%;
+            }
+
+            
+        }
+        
+        #japan-map{
+            margin-top: 24px;
+        }
+       
+
+   }
+
   /* @media screen and (max-width: 776px) {
   #japan-map {
       display: flex;

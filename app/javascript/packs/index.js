@@ -354,14 +354,9 @@
 
 }
 
-(()=>{
-  if(typeof gon != 'undefined'){
-  console.log(`You've been to,${gon.label[1].prefecture_id}`)
-}else{
-  console.log('やばい');
-}
-})();
 
+// console.log(`You've been to,${gon.label[3].prefecture_id}`);
+// console.log(gon.check);
 
 // 複数モーダル
 // let area = document.querySelectorAll('.area');
@@ -414,13 +409,32 @@
 //     },false)
 //   }
 
-window.alert(`hello, ${gon.label[0].prefecture_id}`);
-console.log(`行ったことのある都道府県は、${gon.label.length}つです。`);
+// window.alert(`hello, ${gon.label[6].prefecture_id}`);
+// console.log(`行ったことのある都道府県は、${gon.label.length}つです。`);
 
 // 行ったことのある都道府県id(prefecture_id)一覧を取得
+// let gonArray = [];
 function testGon() {
   for (let i = 0; i < `${gon.label.length}`; i++) {
     console.log(`${gon.label[i].prefecture_id}`);
   }
 }
+
 testGon();
+// console.log(gon.label);
+const prefId = gon.label.map(item =>item.prefecture_id);
+console.log(prefId);
+function colorChange (){
+  if(gon.label.indexOf(prefId)){
+    console.log("yes")
+  }else{
+    console.log("no")
+  }
+}
+
+colorChange();
+// let gonArray = [gon.label.length];
+// console.log(gonArray);
+// console.log(gon.label[1]);
+
+

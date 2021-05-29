@@ -11,9 +11,15 @@ class HomesController < ApplicationController
     #     @prefectures = Prefecture.all
     #     # @prefectures = "bbb"
     # end
+    #current_user.idはログインしているユーザーのid
+    # @checkと@labelは紐づいてる。check>label>param paramは各パラメーターのことで今回はcheck_idを使用。他にもnameやemailも参照できる
+
     if logged_in?
       @check = Check.find_by(user_id: current_user.id)
-      @label = Label.where(check_id: current_user.id)
+      # @label = Label.where(check_id: current_user.id)
+      # @label修正後
+
+      @label = @check.labels.where(params[:check_id])
       gon.check = @check
       gon.label = @label
     end
